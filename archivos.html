@@ -156,10 +156,33 @@ Desarrollar un programa que lea un archivo CSV y muestre todas sus líneas en pa
 <h2>Solución</h2>
 
 <pre><code>
-String linea;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
-while((linea = br.readLine()) != null){
-    System.out.println(linea);
+public class LeerArchivo {
+
+    public static void main(String[] args) {
+
+        try {
+
+            BufferedReader br = new BufferedReader(new FileReader("datos.csv"));
+
+            String linea;
+
+            while((linea = br.readLine()) != null) {
+
+                System.out.println(linea);
+
+            }
+
+            br.close();
+
+        } catch(Exception e) {
+    
+            System.out.println("Error: " + e.getMessage());
+
+        }
+    }
 }
 </code></pre>
 
