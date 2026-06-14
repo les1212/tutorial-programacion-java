@@ -1,57 +1,101 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
-    background-color: #f3f4f6;
-    color: #222;
+    background: linear-gradient(135deg, #e0f2fe, #f8fafc);
+    color: #1f2937;
+    font-size: 16px;
 }
 
 header {
-    background-color: #1f2937;
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
     color: white;
     text-align: center;
-    padding: 30px;
+    padding: 45px 20px;
+}
+
+header h1 {
+    font-size: 42px;
+    margin: 0;
+}
+
+header p {
+    font-size: 18px;
 }
 
 nav {
-    background-color: #374151;
+    background-color: #111827;
     text-align: center;
-    padding: 15px;
+    padding: 18px;
+    position: sticky;
+    top: 0;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 10px;
+    margin: 8px 15px;
     font-weight: bold;
+    padding: 10px 14px;
+    border-radius: 8px;
 }
 
 nav a:hover {
-    color: #93c5fd;
+    background-color: #2563eb;
 }
 
 main {
-    max-width: 900px;
+    max-width: 1000px;
     background-color: white;
-    margin: 30px auto;
-    padding: 25px;
-    border-radius: 10px;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
 }
 
 h2 {
-    color: #1f2937;
+    color: #1e3a8a;
+    border-left: 6px solid #2563eb;
+    padding-left: 12px;
+    margin-top: 30px;
+}
+
+p {
+    line-height: 1.7;
+}
+
+ul {
+    line-height: 1.8;
+}
+
+li {
+    margin-bottom: 5px;
 }
 
 pre {
-    background-color: #111827;
+    background-color: #0f172a;
     color: #e5e7eb;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 20px;
+    border-radius: 12px;
     overflow-x: auto;
+    font-size: 15px;
+}
+
+code {
+    font-family: Consolas, monospace;
+}
+
+a {
+    color: #2563eb;
 }
 
 footer {
-    background-color: #1f2937;
+    background-color: #111827;
     color: white;
     text-align: center;
-    padding: 15px;
+    padding: 20px;
+    margin-top: 40px;
 }
