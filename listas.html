@@ -163,16 +163,27 @@ Crear una lista con los nombres de cinco estudiantes y mostrarlos en pantalla.
 <h2>Solución</h2>
 
 <pre><code>
-ArrayList<String> estudiantes = new ArrayList<>();
+import java.util.ArrayList;
 
-estudiantes.add("Juan");
-estudiantes.add("María");
-estudiantes.add("Pedro");
-estudiantes.add("Ana");
-estudiantes.add("Carlos");
+public class ListaEstudiantes {
 
-for(String estudiante : estudiantes){
-    System.out.println(estudiante);
+    public static void main(String[] args) {
+
+        ArrayList<String> estudiantes = new ArrayList<>();
+
+        estudiantes.add("Juan");
+        estudiantes.add("María");
+        estudiantes.add("Pedro");
+        estudiantes.add("Ana");
+        estudiantes.add("Carlos");
+
+        for(String estudiante : estudiantes) {
+
+            System.out.println(estudiante);
+
+        }
+
+    }
 }
 </code></pre>
 
