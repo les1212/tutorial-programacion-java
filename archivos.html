@@ -25,40 +25,156 @@
 <h2>¿Qué es el manejo de archivos?</h2>
 
 <p>
-El manejo de archivos permite guardar y leer información desde archivos externos,
-como archivos de texto o CSV.
+El manejo de archivos permite almacenar información de forma permanente en el
+computador. Gracias a ello, los datos pueden conservarse incluso después de que
+el programa termine su ejecución.
 </p>
 
+<p>
+En Java es común trabajar con archivos de texto (.txt) y archivos CSV (.csv),
+los cuales permiten guardar información organizada para posteriormente leerla,
+modificarla o analizarla.
+</p>
+
+<h2>¿Para qué sirve?</h2>
+
+<ul>
+    <li>Guardar información de usuarios.</li>
+    <li>Almacenar registros de ventas.</li>
+    <li>Leer datos desde archivos CSV.</li>
+    <li>Generar reportes.</li>
+    <li>Mantener información después de cerrar el programa.</li>
+</ul>
+
 <h2>Librerías utilizadas</h2>
+
+<p>
+Para leer archivos en Java se utilizan las siguientes librerías:
+</p>
 
 <pre><code>
 import java.io.BufferedReader;
 import java.io.FileReader;
 </code></pre>
 
-<h2>Lectura de un archivo CSV</h2>
+<ul>
+    <li><b>FileReader:</b> Permite abrir un archivo para leerlo.</li>
+    <li><b>BufferedReader:</b> Facilita la lectura línea por línea.</li>
+</ul>
+
+<h2>Apertura de un archivo</h2>
+
+<p>
+Primero se debe indicar la ruta o nombre del archivo que se desea leer.
+</p>
+
+<pre><code>
+String archivo = "datos.csv";
+</code></pre>
+
+<p>
+Luego se crea el objeto BufferedReader para acceder al contenido.
+</p>
 
 <pre><code>
 BufferedReader br =
 new BufferedReader(
-new FileReader("datos.csv"));
+new FileReader(archivo));
 </code></pre>
 
-<h2>Ejercicio resuelto</h2>
+<h2>Lectura línea por línea</h2>
 
 <p>
-Leer un archivo CSV e imprimir su contenido.
+La lectura se realiza utilizando un ciclo while.
+El programa continuará leyendo mientras existan líneas disponibles.
 </p>
 
 <pre><code>
+String linea;
+
 while((linea = br.readLine()) != null){
     System.out.println(linea);
 }
 </code></pre>
 
+<h2>Ejemplo explicado</h2>
+
 <p>
-Código completo:
-<a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigo/ManejoArchivos.java">
+El siguiente programa abre un archivo CSV y muestra todo su contenido en pantalla.
+</p>
+
+<pre><code>
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+public class ManejoArchivos {
+
+    public static void main(String[] args) {
+
+        String archivo = "datos.csv";
+
+        try {
+
+            BufferedReader br =
+                new BufferedReader(
+                new FileReader(archivo));
+
+            String linea;
+
+            while((linea = br.readLine()) != null) {
+                System.out.println(linea);
+            }
+
+            br.close();
+
+        } catch(Exception e) {
+
+            System.out.println("Error: " + e.getMessage());
+
+        }
+    }
+}
+</code></pre>
+
+<h2>Explicación del código</h2>
+
+<ul>
+    <li>Se define el nombre del archivo a leer.</li>
+    <li>Se crea un FileReader para abrir el archivo.</li>
+    <li>BufferedReader permite leer línea por línea.</li>
+    <li>El ciclo while recorre todo el archivo.</li>
+    <li>Cuando no existen más líneas, la lectura termina.</li>
+    <li>El bloque catch captura errores como archivos inexistentes.</li>
+</ul>
+
+<h2>Ejercicio práctico</h2>
+
+<p>
+Desarrollar un programa que lea un archivo CSV y muestre todas sus líneas en pantalla.
+</p>
+
+<h2>Solución</h2>
+
+<pre><code>
+String linea;
+
+while((linea = br.readLine()) != null){
+    System.out.println(linea);
+}
+</code></pre>
+
+<h2>Conclusión</h2>
+
+<p>
+El manejo de archivos es una herramienta fundamental en programación,
+ya que permite almacenar y recuperar información de manera permanente.
+En Java, las clases FileReader y BufferedReader facilitan la lectura
+de archivos de texto y CSV de forma sencilla y eficiente.
+</p>
+
+<p>
+Código completo en GitHub:
+<a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigos/ManejoArchivos.java">
 Ver ManejoArchivos.java
 </a>
 </p>
