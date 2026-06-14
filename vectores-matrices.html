@@ -22,71 +22,234 @@
 
 <main>
 
-<h2>¿Qué es un vector?</h2>
+<h2>¿Qué son los vectores?</h2>
 
 <p>
-Un vector es un arreglo unidimensional que permite almacenar varios datos del mismo tipo.
-Cada elemento se identifica mediante una posición o índice.
+Un vector es una estructura de datos unidimensional que permite almacenar
+varios elementos del mismo tipo utilizando una sola variable.
+Cada elemento se identifica mediante una posición llamada índice.
+</p>
+
+<p>
+Los índices comienzan desde la posición 0. Por ejemplo:
 </p>
 
 <pre><code>
 int[] numeros = {10, 20, 30, 40, 50};
 </code></pre>
 
-<h2>Recorrer un vector</h2>
+<p>
+En este vector:
+</p>
+
+<ul>
+    <li>numeros[0] = 10</li>
+    <li>numeros[1] = 20</li>
+    <li>numeros[2] = 30</li>
+    <li>numeros[3] = 40</li>
+    <li>numeros[4] = 50</li>
+</ul>
+
+<h2>¿Para qué sirven los vectores?</h2>
+
+<ul>
+    <li>Almacenar conjuntos de datos.</li>
+    <li>Guardar notas de estudiantes.</li>
+    <li>Registrar temperaturas.</li>
+    <li>Almacenar ventas o inventarios.</li>
+    <li>Realizar cálculos estadísticos.</li>
+</ul>
+
+<h2>Recorrido de un vector</h2>
+
+<p>
+Para acceder a todos los elementos de un vector generalmente se utiliza un ciclo for.
+</p>
 
 <pre><code>
-for(int i=0; i<numeros.length; i++){
+for(int i = 0; i < numeros.length; i++) {
+
     System.out.println(numeros[i]);
+
 }
 </code></pre>
 
-<h2>¿Qué es una matriz?</h2>
+<p>
+La propiedad <b>length</b> indica la cantidad de elementos que posee el vector.
+</p>
+
+<h2>Ejemplo de vector</h2>
+
+<pre><code>
+int[] edades = {18, 20, 19, 22, 21};
+
+for(int i = 0; i < edades.length; i++) {
+
+    System.out.println(edades[i]);
+
+}
+</code></pre>
+
+<h2>¿Qué son las matrices?</h2>
 
 <p>
-Una matriz es un arreglo bidimensional formado por filas y columnas.
+Una matriz es una estructura bidimensional formada por filas y columnas.
+Puede considerarse como una tabla donde cada posición almacena un valor.
+</p>
+
+<p>
+La declaración de una matriz es la siguiente:
 </p>
 
 <pre><code>
 int[][] matriz = {
-    {1,2,3},
-    {4,5,6},
-    {7,8,9}
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
 };
 </code></pre>
 
-<h2>Recorrer una matriz</h2>
-
-<pre><code>
-for(int i=0; i<matriz.length; i++){
-    for(int j=0; j<matriz[i].length; j++){
-        System.out.print(matriz[i][j] + " ");
-    }
-    System.out.println();
-}
-</code></pre>
-
-<h2>Ejercicio resuelto</h2>
-
 <p>
-Calcular la suma de los elementos de un vector.
+Visualmente la matriz se representa así:
 </p>
 
 <pre><code>
-int[] vector = {5,10,15,20};
+1  2  3
+4  5  6
+7  8  9
+</code></pre>
+
+<h2>¿Para qué sirven las matrices?</h2>
+
+<ul>
+    <li>Representar tablas de datos.</li>
+    <li>Almacenar calificaciones.</li>
+    <li>Gestionar ventas por sucursal.</li>
+    <li>Trabajar con imágenes digitales.</li>
+    <li>Resolver problemas matemáticos.</li>
+</ul>
+
+<h2>Recorrido de una matriz</h2>
+
+<p>
+Para recorrer una matriz se utilizan ciclos anidados.
+El primer ciclo controla las filas y el segundo las columnas.
+</p>
+
+<pre><code>
+for(int i = 0; i < matriz.length; i++) {
+
+    for(int j = 0; j < matriz[i].length; j++) {
+
+        System.out.print(matriz[i][j] + " ");
+
+    }
+
+    System.out.println();
+
+}
+</code></pre>
+
+<h2>Ejemplo explicado</h2>
+
+<p>
+El siguiente programa calcula la suma de los elementos de un vector y posteriormente
+muestra una matriz en pantalla.
+</p>
+
+<pre><code>
+public class VectoresMatrices {
+
+    public static void main(String[] args) {
+
+        int[] vector = {5, 10, 15, 20};
+
+        int suma = 0;
+
+        for(int i = 0; i < vector.length; i++) {
+
+            suma += vector[i];
+
+        }
+
+        System.out.println("Suma = " + suma);
+
+        int[][] matriz = {
+            {1,2,3},
+            {4,5,6},
+            {7,8,9}
+        };
+
+        for(int i = 0; i < matriz.length; i++) {
+
+            for(int j = 0; j < matriz[i].length; j++) {
+
+                System.out.print(matriz[i][j] + " ");
+
+            }
+
+            System.out.println();
+
+        }
+    }
+}
+</code></pre>
+
+<h2>Explicación del código</h2>
+
+<ul>
+    <li>Se crea un vector con cuatro elementos.</li>
+    <li>Mediante un ciclo for se calcula la suma de todos los valores.</li>
+    <li>Se crea una matriz de 3 filas y 3 columnas.</li>
+    <li>Se utilizan ciclos anidados para recorrer toda la matriz.</li>
+    <li>Cada elemento es mostrado en pantalla.</li>
+</ul>
+
+<h2>Ejercicio práctico</h2>
+
+<p>
+Desarrollar un programa que almacene cinco números en un vector y calcule su promedio.
+</p>
+
+<h2>Solución</h2>
+
+<pre><code>
+int[] numeros = {10, 20, 30, 40, 50};
 
 int suma = 0;
 
-for(int i=0; i<vector.length; i++){
-    suma += vector[i];
+for(int i = 0; i < numeros.length; i++) {
+
+    suma += numeros[i];
+
 }
 
-System.out.println("Suma = " + suma);
+double promedio = (double)suma / numeros.length;
+
+System.out.println("Promedio = " + promedio);
 </code></pre>
 
+<h2>Explicación de la solución</h2>
+
+<ul>
+    <li>Se almacena la información en un vector.</li>
+    <li>Se suman todos los elementos.</li>
+    <li>La suma se divide para la cantidad de elementos.</li>
+    <li>El resultado corresponde al promedio.</li>
+</ul>
+
+<h2>Conclusión</h2>
+
 <p>
-Código completo:
-<a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigo/VectoresMatrices.java">
+Los vectores y matrices son estructuras fundamentales en programación.
+Permiten almacenar y organizar grandes cantidades de información de manera eficiente.
+Su uso es indispensable en aplicaciones que manejan datos numéricos, registros,
+estadísticas e incluso procesamiento de imágenes.
+</p>
+
+<p>
+Código completo en GitHub:
+<a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigos/VectoresMatrices.java">
 Ver VectoresMatrices.java
 </a>
 </p>
