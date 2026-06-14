@@ -9,6 +9,7 @@
 
 <header>
     <h1>Manejo de Archivos en Java</h1>
+    <p>Lectura de archivos de texto y CSV usando Java</p>
 </header>
 
 <nav>
@@ -25,15 +26,36 @@
 <h2>¿Qué es el manejo de archivos?</h2>
 
 <p>
-El manejo de archivos permite almacenar información de forma permanente en el
-computador. Gracias a ello, los datos pueden conservarse incluso después de que
-el programa termine su ejecución.
+El manejo de archivos permite guardar y recuperar información desde archivos externos.
+Esto es importante porque los datos no se pierden cuando el programa termina.
 </p>
 
+<div class="concepto">
+    <b>Idea principal:</b> Un archivo permite almacenar datos de forma permanente.
+    Por ejemplo, nombres de usuarios, productos, ventas, calificaciones o registros.
+</div>
+
 <p>
-En Java es común trabajar con archivos de texto (.txt) y archivos CSV (.csv),
-los cuales permiten guardar información organizada para posteriormente leerla,
-modificarla o analizarla.
+En Java se puede trabajar con archivos de texto como <b>.txt</b> y archivos separados
+por comas como <b>.csv</b>. Los archivos CSV son muy utilizados porque permiten
+guardar datos en forma de tabla.
+</p>
+
+<h2>Ejemplo de archivo CSV</h2>
+
+<p>
+Un archivo llamado <b>datos.csv</b> podría tener esta información:
+</p>
+
+<pre><code>
+Nombre,Edad,Ciudad
+Ana,20,Quito
+Luis,22,Ambato
+María,19,Guayaquil
+</code></pre>
+
+<p>
+Cada línea representa un registro y cada dato está separado por comas.
 </p>
 
 <h2>¿Para qué sirve?</h2>
@@ -43,13 +65,23 @@ modificarla o analizarla.
     <li>Almacenar registros de ventas.</li>
     <li>Leer datos desde archivos CSV.</li>
     <li>Generar reportes.</li>
+    <li>Guardar récords o resultados de un programa.</li>
     <li>Mantener información después de cerrar el programa.</li>
+</ul>
+
+<h2>Aplicaciones reales</h2>
+
+<ul>
+    <li>Un sistema de facturación puede guardar productos y clientes en archivos CSV.</li>
+    <li>Un juego puede guardar el nombre del jugador y su puntaje.</li>
+    <li>Un sistema académico puede leer notas de estudiantes desde un archivo.</li>
+    <li>Un inventario puede cargar productos, precios y stock desde un archivo.</li>
 </ul>
 
 <h2>Librerías utilizadas</h2>
 
 <p>
-Para leer archivos en Java se utilizan las siguientes librerías:
+Para leer archivos en Java se utilizan clases del paquete <b>java.io</b>.
 </p>
 
 <pre><code>
@@ -58,14 +90,19 @@ import java.io.FileReader;
 </code></pre>
 
 <ul>
-    <li><b>FileReader:</b> Permite abrir un archivo para leerlo.</li>
-    <li><b>BufferedReader:</b> Facilita la lectura línea por línea.</li>
+    <li><b>FileReader:</b> permite abrir un archivo para leerlo.</li>
+    <li><b>BufferedReader:</b> permite leer el archivo línea por línea.</li>
 </ul>
+
+<div class="concepto">
+    <b>Importante:</b> FileReader abre el archivo, mientras que BufferedReader ayuda
+    a leerlo de forma más ordenada y eficiente.
+</div>
 
 <h2>Apertura de un archivo</h2>
 
 <p>
-Primero se debe indicar la ruta o nombre del archivo que se desea leer.
+Primero se debe indicar el nombre o ruta del archivo.
 </p>
 
 <pre><code>
@@ -73,20 +110,20 @@ String archivo = "datos.csv";
 </code></pre>
 
 <p>
-Luego se crea el objeto BufferedReader para acceder al contenido.
+Después se crea el lector del archivo.
 </p>
 
 <pre><code>
 BufferedReader br =
-new BufferedReader(
-new FileReader(archivo));
+    new BufferedReader(
+    new FileReader(archivo));
 </code></pre>
 
 <h2>Lectura línea por línea</h2>
 
 <p>
-La lectura se realiza utilizando un ciclo while.
-El programa continuará leyendo mientras existan líneas disponibles.
+La lectura se realiza con un ciclo <b>while</b>. El método <b>readLine()</b>
+lee una línea del archivo. Cuando ya no existen más líneas, devuelve <b>null</b>.
 </p>
 
 <pre><code>
@@ -97,10 +134,20 @@ while((linea = br.readLine()) != null){
 }
 </code></pre>
 
+<h2>Análisis línea por línea</h2>
+
+<ul>
+    <li><b>String linea;</b> crea una variable para guardar cada línea del archivo.</li>
+    <li><b>br.readLine()</b> lee una línea del archivo.</li>
+    <li><b>!= null</b> verifica que todavía existan líneas para leer.</li>
+    <li><b>System.out.println(linea);</b> muestra la línea en pantalla.</li>
+</ul>
+
 <h2>Ejemplo explicado</h2>
 
 <p>
-El siguiente programa abre un archivo CSV y muestra todo su contenido en pantalla.
+El siguiente programa abre un archivo CSV llamado <b>datos.csv</b> y muestra todo
+su contenido en pantalla.
 </p>
 
 <pre><code>
@@ -139,21 +186,39 @@ public class ManejoArchivos {
 <h2>Explicación del código</h2>
 
 <ul>
-    <li>Se define el nombre del archivo a leer.</li>
-    <li>Se crea un FileReader para abrir el archivo.</li>
-    <li>BufferedReader permite leer línea por línea.</li>
-    <li>El ciclo while recorre todo el archivo.</li>
-    <li>Cuando no existen más líneas, la lectura termina.</li>
-    <li>El bloque catch captura errores como archivos inexistentes.</li>
+    <li>Se importan las librerías necesarias para leer archivos.</li>
+    <li>Se define el nombre del archivo que se desea leer.</li>
+    <li>El bloque <b>try</b> contiene el código que puede generar errores.</li>
+    <li><b>FileReader</b> abre el archivo.</li>
+    <li><b>BufferedReader</b> permite leer el archivo línea por línea.</li>
+    <li>El ciclo <b>while</b> se repite mientras existan líneas disponibles.</li>
+    <li><b>br.close()</b> cierra el archivo después de usarlo.</li>
+    <li>El bloque <b>catch</b> captura errores, por ejemplo si el archivo no existe.</li>
 </ul>
+
+<h2>Errores comunes</h2>
+
+<ul>
+    <li>Escribir mal el nombre del archivo.</li>
+    <li>Guardar el archivo en una carpeta diferente a la del proyecto.</li>
+    <li>No cerrar el archivo con <b>br.close()</b>.</li>
+    <li>Olvidar importar <b>BufferedReader</b> y <b>FileReader</b>.</li>
+    <li>Usar una ruta con barras invertidas sin cuidado, por ejemplo <b>C:\datos\archivo.csv</b>.</li>
+</ul>
+
+<div class="concepto">
+    <b>Consejo:</b> Para evitar errores de ruta, al inicio es mejor colocar el archivo
+    CSV dentro de la carpeta principal del proyecto.
+</div>
 
 <h2>Ejercicio práctico</h2>
 
 <p>
-Desarrollar un programa que lea un archivo CSV y muestre todas sus líneas en pantalla.
+Desarrollar un programa que lea un archivo CSV llamado <b>datos.csv</b> y muestre
+todas sus líneas en pantalla.
 </p>
 
-<h2>Solución</h2>
+<h2>Solución completa</h2>
 
 <pre><code>
 import java.io.BufferedReader;
@@ -163,9 +228,13 @@ public class LeerArchivo {
 
     public static void main(String[] args) {
 
+        String archivo = "datos.csv";
+
         try {
 
-            BufferedReader br = new BufferedReader(new FileReader("datos.csv"));
+            BufferedReader br =
+                new BufferedReader(
+                new FileReader(archivo));
 
             String linea;
 
@@ -178,7 +247,7 @@ public class LeerArchivo {
             br.close();
 
         } catch(Exception e) {
-    
+
             System.out.println("Error: " + e.getMessage());
 
         }
@@ -186,13 +255,65 @@ public class LeerArchivo {
 }
 </code></pre>
 
+<h2>Explicación de la solución</h2>
+
+<ul>
+    <li>El programa intenta abrir el archivo <b>datos.csv</b>.</li>
+    <li>Si el archivo existe, se lee línea por línea.</li>
+    <li>Cada línea se muestra en consola.</li>
+    <li>Cuando termina la lectura, se cierra el archivo.</li>
+    <li>Si ocurre un error, el programa muestra un mensaje explicando el problema.</li>
+</ul>
+
+<h2>Preguntas frecuentes</h2>
+
+<p><b>¿Qué pasa si el archivo no existe?</b></p>
+<p>
+El programa entra al bloque <b>catch</b> y muestra un mensaje de error.
+</p>
+
+<p><b>¿Qué significa CSV?</b></p>
+<p>
+CSV significa valores separados por comas. Es un formato usado para guardar datos
+en forma de tabla.
+</p>
+
+<p><b>¿Puedo leer archivos .txt?</b></p>
+<p>
+Sí. El mismo procedimiento sirve para leer archivos de texto, cambiando el nombre
+del archivo, por ejemplo <b>datos.txt</b>.
+</p>
+
+<h2>Relación con otros temas</h2>
+
+<p>
+El manejo de archivos se relaciona con listas, vectores y matrices porque muchas
+veces los datos leídos desde un archivo se almacenan en esas estructuras para
+procesarlos después.
+</p>
+
+<p>
+Por ejemplo, se puede leer un archivo CSV de ventas y guardar sus datos en una
+matriz para calcular totales, promedios o estadísticas.
+</p>
+
+<h2>Resumen</h2>
+
+<ul>
+    <li>Los archivos permiten guardar información de forma permanente.</li>
+    <li>Java puede leer archivos usando <b>FileReader</b> y <b>BufferedReader</b>.</li>
+    <li>El método <b>readLine()</b> permite leer una línea a la vez.</li>
+    <li>Los archivos CSV guardan datos separados por comas.</li>
+    <li>El bloque <b>try-catch</b> permite manejar errores durante la lectura.</li>
+</ul>
+
 <h2>Conclusión</h2>
 
 <p>
-El manejo de archivos es una herramienta fundamental en programación,
-ya que permite almacenar y recuperar información de manera permanente.
-En Java, las clases FileReader y BufferedReader facilitan la lectura
-de archivos de texto y CSV de forma sencilla y eficiente.
+El manejo de archivos es una herramienta fundamental en programación porque permite
+trabajar con información real almacenada fuera del programa. En Java, las clases
+FileReader y BufferedReader facilitan la lectura de archivos de texto y CSV de una
+forma sencilla, permitiendo desarrollar programas más útiles y completos.
 </p>
 
 <p>
@@ -203,6 +324,10 @@ Ver ManejoArchivos.java
 </p>
 
 </main>
+
+<footer>
+    <p>Autora: Lesly Nicole Reivan Rubio</p>
+</footer>
 
 </body>
 </html>
