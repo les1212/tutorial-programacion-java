@@ -30,11 +30,11 @@ un programa. Su principal objetivo es organizar mejor el código y evitar
 repetir instrucciones innecesariamente.
 </p>
 
-<p>
-Gracias a los métodos es posible dividir un problema grande en tareas más
-pequeñas y fáciles de entender.
-</p>
-
+    <div class="concepto">
+<b>Importante:</b> Los métodos permiten dividir un programa en tareas más pequeñas,
+haciendo que el código sea más fácil de entender, reutilizar y mantener.
+</div>
+    
 <h2>¿Para qué sirven?</h2>
 
 <ul>
@@ -44,7 +44,15 @@ pequeñas y fáciles de entender.
     <li>Facilitar el mantenimiento de un programa.</li>
     <li>Hacer que el código sea más legible.</li>
 </ul>
+<h2>Aplicaciones reales</h2>
 
+<ul>
+    <li>Calcular promedios de estudiantes.</li>
+    <li>Validar datos ingresados por el usuario.</li>
+    <li>Procesar ventas y facturas.</li>
+    <li>Realizar operaciones matemáticas repetitivas.</li>
+    <li>Organizar programas grandes en partes más pequeñas.</li>
+</ul>
 <h2>Estructura de un método</h2>
 
 <p>
@@ -70,7 +78,28 @@ Cada parte cumple una función:
     <li><b>nombreMetodo:</b> Nombre que identifica al método.</li>
     <li><b>parámetros:</b> Datos que recibe el método para trabajar.</li>
 </ul>
+<h2>Ejemplo sencillo</h2>
 
+<p>
+El siguiente método muestra un mensaje en pantalla:
+</p>
+
+<pre><code>
+public static void saludar() {
+
+    System.out.println("Bienvenido al programa");
+
+}
+</code></pre>
+
+<p>
+Para ejecutar el método se debe llamar desde el programa principal:
+</p>
+
+<pre><code>
+saludar();
+</code></pre>
+    
 <h2>Métodos con retorno</h2>
 
 <p>
@@ -129,7 +158,17 @@ public class Metodos {
     }
 }
 </code></pre>
+<h2>Análisis línea por línea</h2>
 
+<ul>
+    <li><b>public</b> → permite acceder al método desde otras clases.</li>
+    <li><b>static</b> → permite llamar al método sin crear un objeto.</li>
+    <li><b>int</b> → indica que el método devuelve un número entero.</li>
+    <li><b>sumar</b> → es el nombre del método.</li>
+    <li><b>(int a, int b)</b> → son los parámetros que recibe.</li>
+    <li><b>return</b> → devuelve el resultado de la operación.</li>
+</ul>
+    
 <h2>Explicación del código</h2>
 
 <ul>
@@ -149,13 +188,50 @@ public class Metodos {
     <li>Permiten reutilizar funciones en diferentes partes del programa.</li>
     <li>Hacen que el código sea más profesional y organizado.</li>
 </ul>
+<h2>Métodos con parámetros y sin parámetros</h2>
 
+<p>
+Un método puede recibir datos mediante parámetros o trabajar sin ellos.
+</p>
+
+<h3>Método sin parámetros</h3>
+
+<pre><code>
+public static void mostrarMensaje() {
+
+    System.out.println("Hola");
+
+}
+</code></pre>
+
+<h3>Método con parámetros</h3>
+
+<pre><code>
+public static void saludar(String nombre) {
+
+    System.out.println("Hola " + nombre);
+
+}
+</code></pre>
+
+<h2>Errores comunes</h2>
+
+<ul>
+    <li>Olvidar escribir la palabra return en métodos con retorno.</li>
+    <li>Confundir métodos void con métodos que devuelven valores.</li>
+    <li>Llamar al método con parámetros incorrectos.</li>
+    <li>Escribir mal el nombre del método.</li>
+</ul>
+    
 <h2>Ejercicio práctico</h2>
 
 <p>
-Crear un método que reciba dos números y devuelva el número mayor.
+Crear un método que reciba dos números enteros y devuelva el número mayor.
+Posteriormente mostrar el resultado en pantalla.
 </p>
 
+<h2>Solución completa</h2>
+    
 <pre><code>
 public class MetodoMayor {
 
@@ -187,6 +263,37 @@ public class MetodoMayor {
     <li>En caso contrario se devuelve el segundo número.</li>
 </ul>
 
+    <h2>Más ejercicios para practicar</h2>
+
+<h3>Nivel básico</h3>
+<p>
+Crear un método que reciba un número y muestre su cuadrado.
+</p>
+
+<h3>Nivel intermedio</h3>
+<p>
+Crear un método que calcule el área de un rectángulo.
+</p>
+
+<h3>Nivel avanzado</h3>
+<p>
+Crear un método que reciba un vector y calcule su promedio.
+</p>
+
+    <h2>Preguntas frecuentes</h2>
+
+<p><b>¿Qué diferencia existe entre void e int?</b></p>
+
+<p>
+void no devuelve ningún valor, mientras que int devuelve un número entero.
+</p>
+
+<p><b>¿Qué son los parámetros?</b></p>
+
+<p>
+Son datos que recibe un método para realizar una tarea específica.
+</p>
+    
 <h2>Conclusión</h2>
 
 <p>
@@ -204,6 +311,8 @@ Ver Metodos.java
 </p>
 
 </main>
-
+<footer>
+    <p>Autora: Lesly Nicole Reivan Rubio</p>
+</footer>
 </body>
 </html>
