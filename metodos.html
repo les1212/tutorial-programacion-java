@@ -156,17 +156,26 @@ public class Metodos {
 Crear un método que reciba dos números y devuelva el número mayor.
 </p>
 
-<h2>Solución</h2>
-
 <pre><code>
-public static int mayor(int a, int b){
+public class MetodoMayor {
 
-    if(a > b){
-        return a;
-    }else{
-        return b;
+    public static int mayor(int a, int b) {
+
+        if(a > b) {
+            return a;
+        } else {
+            return b;
+        }
+
     }
 
+    public static void main(String[] args) {
+
+        int resultado = mayor(15, 8);
+
+        System.out.println("El número mayor es: " + resultado);
+
+    }
 }
 </code></pre>
 
