@@ -22,54 +22,172 @@
 
 <main>
 
-<h2>¿Qué es una lista?</h2>
+<h2>¿Qué son las listas?</h2>
 
 <p>
-Una lista permite almacenar varios datos y cambiar su tamaño dinámicamente.
-En Java se puede usar ArrayList para trabajar con listas.
+Las listas son estructuras de datos que permiten almacenar varios elementos
+de un mismo tipo. A diferencia de los vectores, las listas pueden aumentar
+o disminuir su tamaño dinámicamente durante la ejecución del programa.
 </p>
 
-<h2>Importar ArrayList</h2>
+<p>
+En Java, una de las implementaciones más utilizadas es la clase
+<b>ArrayList</b>, perteneciente al paquete <b>java.util</b>.
+</p>
+
+<h2>¿Para qué sirven?</h2>
+
+<ul>
+    <li>Guardar colecciones de datos.</li>
+    <li>Almacenar información cuyo tamaño puede variar.</li>
+    <li>Agregar y eliminar elementos fácilmente.</li>
+    <li>Recorrer información mediante ciclos.</li>
+    <li>Gestionar registros de usuarios, productos o ventas.</li>
+</ul>
+
+<h2>Importación de la librería</h2>
+
+<p>
+Antes de utilizar una lista es necesario importar la clase ArrayList.
+</p>
 
 <pre><code>
 import java.util.ArrayList;
 </code></pre>
 
-<h2>Ejemplo</h2>
+<h2>Creación de una lista</h2>
+
+<p>
+Una lista se crea indicando el tipo de dato que almacenará.
+</p>
 
 <pre><code>
-ArrayList&lt;String&gt; nombres = new ArrayList&lt;&gt;();
+ArrayList<String> nombres = new ArrayList<>();
+</code></pre>
 
+<p>
+En este caso la lista almacenará cadenas de texto (String).
+</p>
+
+<h2>Agregar elementos</h2>
+
+<p>
+El método <b>add()</b> permite insertar nuevos elementos.
+</p>
+
+<pre><code>
 nombres.add("Ana");
 nombres.add("Luis");
 nombres.add("María");
+</code></pre>
 
+<h2>Recorrer una lista</h2>
+
+<p>
+Para mostrar todos los elementos se puede utilizar un ciclo for mejorado.
+</p>
+
+<pre><code>
 for(String nombre : nombres){
     System.out.println(nombre);
 }
 </code></pre>
 
-<h2>Ejercicio resuelto</h2>
+<h2>Ejemplo explicado</h2>
 
 <p>
-Crear una lista de productos y mostrar todos sus elementos.
+El siguiente programa crea una lista de productos y posteriormente
+muestra todos sus elementos.
 </p>
 
 <pre><code>
-ArrayList&lt;String&gt; productos = new ArrayList&lt;&gt;();
+import java.util.ArrayList;
 
-productos.add("Arroz");
-productos.add("Leche");
-productos.add("Pan");
+public class ListasJava {
 
-for(String producto : productos){
-    System.out.println(producto);
+    public static void main(String[] args) {
+
+        ArrayList<String> productos = new ArrayList<>();
+
+        productos.add("Arroz");
+        productos.add("Leche");
+        productos.add("Pan");
+        productos.add("Azúcar");
+
+        for(String producto : productos){
+            System.out.println(producto);
+        }
+    }
 }
 </code></pre>
 
+<h2>Explicación del código</h2>
+
+<ul>
+    <li>Se crea una lista llamada productos.</li>
+    <li>Se agregan cuatro elementos mediante add().</li>
+    <li>El ciclo for recorre todos los elementos almacenados.</li>
+    <li>Cada producto es mostrado en pantalla.</li>
+</ul>
+
+<h2>Diferencia entre Vector y ArrayList</h2>
+
+<table border="1" cellpadding="8">
+<tr>
+    <th>Vector</th>
+    <th>ArrayList</th>
+</tr>
+
+<tr>
+    <td>Tamaño fijo</td>
+    <td>Tamaño dinámico</td>
+</tr>
+
+<tr>
+    <td>Menos flexible</td>
+    <td>Más flexible</td>
+</tr>
+
+<tr>
+    <td>Se define el tamaño al crearlo</td>
+    <td>Crece automáticamente</td>
+</tr>
+</table>
+
+<h2>Ejercicio práctico</h2>
+
 <p>
-Código completo:
-<a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigo/ListasJava.java">
+Crear una lista con los nombres de cinco estudiantes y mostrarlos en pantalla.
+</p>
+
+<h2>Solución</h2>
+
+<pre><code>
+ArrayList<String> estudiantes = new ArrayList<>();
+
+estudiantes.add("Juan");
+estudiantes.add("María");
+estudiantes.add("Pedro");
+estudiantes.add("Ana");
+estudiantes.add("Carlos");
+
+for(String estudiante : estudiantes){
+    System.out.println(estudiante);
+}
+</code></pre>
+
+<h2>Conclusión</h2>
+
+<p>
+Las listas son estructuras de datos muy útiles porque permiten almacenar
+cantidades variables de información. La clase ArrayList facilita la gestión
+de datos dinámicos y es ampliamente utilizada en aplicaciones reales para
+manejar usuarios, productos, registros y muchos otros tipos de información.
+</p>
+
+<p>
+Código completo en GitHub:
+<a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigos/ListasJava.java">
 Ver ListasJava.java
 </a>
 </p>
