@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Vectores y Matrices</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Vectores y Matrices en Java</h1>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="ciclos.html">Ciclos</a>
+    <a href="metodos.html">Métodos</a>
+    <a href="vectores-matrices.html">Vectores y Matrices</a>
+    <a href="listas.html">Listas</a>
+    <a href="archivos.html">Archivos</a>
+</nav>
+
+<main>
+
+<h2>¿Qué es un vector?</h2>
+
+<p>
+Un vector es un arreglo unidimensional que permite almacenar varios datos del mismo tipo.
+Cada elemento se identifica mediante una posición o índice.
+</p>
+
+<pre><code>
+int[] numeros = {10, 20, 30, 40, 50};
+</code></pre>
+
+<h2>Recorrer un vector</h2>
+
+<pre><code>
+for(int i=0; i<numeros.length; i++){
+    System.out.println(numeros[i]);
+}
+</code></pre>
+
+<h2>¿Qué es una matriz?</h2>
+
+<p>
+Una matriz es un arreglo bidimensional formado por filas y columnas.
+</p>
+
+<pre><code>
+int[][] matriz = {
+    {1,2,3},
+    {4,5,6},
+    {7,8,9}
+};
+</code></pre>
+
+<h2>Recorrer una matriz</h2>
+
+<pre><code>
+for(int i=0; i<matriz.length; i++){
+    for(int j=0; j<matriz[i].length; j++){
+        System.out.print(matriz[i][j] + " ");
+    }
+    System.out.println();
+}
+</code></pre>
+
+<h2>Ejercicio resuelto</h2>
+
+<p>
+Calcular la suma de los elementos de un vector.
+</p>
+
+<pre><code>
+int[] vector = {5,10,15,20};
+
+int suma = 0;
+
+for(int i=0; i<vector.length; i++){
+    suma += vector[i];
+}
+
+System.out.println("Suma = " + suma);
+</code></pre>
+
+<p>
+Código completo:
+<a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigo/VectoresMatrices.java">
+Ver VectoresMatrices.java
+</a>
+</p>
+
+</main>
+
+</body>
+</html>
