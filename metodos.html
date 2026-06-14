@@ -22,34 +22,174 @@
 
 <main>
 
-<h2>¿Qué es un método?</h2>
+<h2>¿Qué son los métodos?</h2>
 
 <p>
-Un método es un bloque de código que realiza una tarea específica.
-Permite reutilizar código y organizar mejor un programa.
+Los métodos son bloques de código que realizan una tarea específica dentro de
+un programa. Su principal objetivo es organizar mejor el código y evitar
+repetir instrucciones innecesariamente.
 </p>
+
+<p>
+Gracias a los métodos es posible dividir un problema grande en tareas más
+pequeñas y fáciles de entender.
+</p>
+
+<h2>¿Para qué sirven?</h2>
+
+<ul>
+    <li>Organizar mejor los programas.</li>
+    <li>Reutilizar código.</li>
+    <li>Reducir la repetición de instrucciones.</li>
+    <li>Facilitar el mantenimiento de un programa.</li>
+    <li>Hacer que el código sea más legible.</li>
+</ul>
 
 <h2>Estructura de un método</h2>
 
-<pre><code>
-public static void saludar() {
-    System.out.println("Hola");
-}
-</code></pre>
-
-<h2>Ejercicio resuelto</h2>
-
-<p>Crear un método que calcule la suma de dos números.</p>
+<p>
+La estructura general de un método en Java es la siguiente:
+</p>
 
 <pre><code>
-public static int sumar(int a, int b) {
-    return a + b;
+public static tipoRetorno nombreMetodo(parametros){
+
+    instrucciones;
+
 }
 </code></pre>
 
 <p>
-Código completo:
-<a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigo/Metodos.java">
+Cada parte cumple una función:
+</p>
+
+<ul>
+    <li><b>public:</b> Indica que el método puede ser utilizado desde otras clases.</li>
+    <li><b>static:</b> Permite llamar al método sin crear un objeto.</li>
+    <li><b>tipoRetorno:</b> Es el tipo de dato que devuelve el método.</li>
+    <li><b>nombreMetodo:</b> Nombre que identifica al método.</li>
+    <li><b>parámetros:</b> Datos que recibe el método para trabajar.</li>
+</ul>
+
+<h2>Métodos con retorno</h2>
+
+<p>
+Un método con retorno devuelve un valor mediante la palabra reservada
+<b>return</b>.
+</p>
+
+<pre><code>
+public static int sumar(int a, int b){
+
+    return a + b;
+
+}
+</code></pre>
+
+<p>
+En este ejemplo el método recibe dos números enteros y devuelve su suma.
+</p>
+
+<h2>Métodos sin retorno</h2>
+
+<p>
+Cuando un método no devuelve ningún valor se utiliza la palabra
+<b>void</b>.
+</p>
+
+<pre><code>
+public static void saludar(){
+
+    System.out.println("Hola");
+
+}
+</code></pre>
+
+<h2>Ejemplo explicado</h2>
+
+<p>
+El siguiente programa utiliza un método para sumar dos números.
+</p>
+
+<pre><code>
+public class Metodos {
+
+    public static int sumar(int a, int b){
+
+        return a + b;
+
+    }
+
+    public static void main(String[] args){
+
+        int resultado = sumar(10,5);
+
+        System.out.println("La suma es: " + resultado);
+
+    }
+}
+</code></pre>
+
+<h2>Explicación del código</h2>
+
+<ul>
+    <li>Se crea el método sumar().</li>
+    <li>El método recibe dos parámetros enteros.</li>
+    <li>La instrucción return devuelve la suma.</li>
+    <li>Desde main() se llama al método.</li>
+    <li>El resultado se almacena en una variable.</li>
+    <li>Finalmente se imprime el resultado.</li>
+</ul>
+
+<h2>Ventajas de utilizar métodos</h2>
+
+<ul>
+    <li>Evitan escribir el mismo código varias veces.</li>
+    <li>Facilitan la corrección de errores.</li>
+    <li>Permiten reutilizar funciones en diferentes partes del programa.</li>
+    <li>Hacen que el código sea más profesional y organizado.</li>
+</ul>
+
+<h2>Ejercicio práctico</h2>
+
+<p>
+Crear un método que reciba dos números y devuelva el número mayor.
+</p>
+
+<h2>Solución</h2>
+
+<pre><code>
+public static int mayor(int a, int b){
+
+    if(a > b){
+        return a;
+    }else{
+        return b;
+    }
+
+}
+</code></pre>
+
+<h2>Explicación de la solución</h2>
+
+<ul>
+    <li>Se comparan los dos números.</li>
+    <li>Si el primero es mayor, se devuelve ese valor.</li>
+    <li>En caso contrario se devuelve el segundo número.</li>
+</ul>
+
+<h2>Conclusión</h2>
+
+<p>
+Los métodos son una de las herramientas más importantes de la programación.
+Permiten dividir los programas en tareas más pequeñas, reutilizar código y
+mejorar la organización de las aplicaciones. Su uso es fundamental para el
+desarrollo de programas más eficientes y fáciles de mantener.
+</p>
+
+<p>
+Código completo en GitHub:
+<a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigos/Metodos.java">
 Ver Metodos.java
 </a>
 </p>
