@@ -28,7 +28,10 @@ Los ciclos, también llamados bucles, son estructuras de control que permiten
 repetir un conjunto de instrucciones varias veces sin necesidad de escribir
 el mismo código repetidamente.
 </p>
-
+<div class="concepto">
+<b>Importante:</b> Los ciclos permiten repetir instrucciones automáticamente,
+evitando escribir el mismo código muchas veces.
+</div>
 <p>
 Imagina que deseas imprimir los números del 1 al 10. Sin un ciclo tendrías que escribir:
 </p>
@@ -54,6 +57,21 @@ una variable de control que cambia en cada repetición.
     <li><b>do while:</b> Similar al while, pero garantiza al menos una ejecución.</li>
 </ul>
 
+    <h2>¿Dónde se utilizan los ciclos?</h2>
+
+<p>
+Los ciclos están presentes en casi todos los programas informáticos.
+Permiten procesar grandes cantidades de datos de forma automática.
+</p>
+
+<ul>
+    <li>Recorrer vectores y matrices.</li>
+    <li>Leer archivos línea por línea.</li>
+    <li>Mostrar menús repetitivos.</li>
+    <li>Procesar listas de usuarios.</li>
+    <li>Realizar cálculos estadísticos.</li>
+</ul>
+    
 <h2>Ciclo For</h2>
 
 <p>
@@ -85,15 +103,13 @@ for(int i = 1; i <= 10; i++) {
 </code></pre>
 
 <p>
-En este ejemplo:
-</p>
-
+<h2>Análisis línea por línea</h2>
 <ul>
-    <li>La variable <b>i</b> inicia en 1.</li>
-    <li>Mientras i sea menor o igual a 10, el ciclo continúa.</li>
-    <li>Después de cada repetición, i aumenta en 1.</li>
+    <li><b>int i = 1</b> → crea la variable de control e inicia en 1.</li>
+    <li><b>i <= 10</b> → condición que debe cumplirse para continuar.</li>
+    <li><b>i++</b> → incrementa el valor de i en cada repetición.</li>
+    <li><b>System.out.println(i)</b> → imprime el valor actual.</li>
 </ul>
-
 <p>
 Salida:
 </p>
@@ -110,7 +126,10 @@ Salida:
 9
 10
 </code></pre>
-
+<div class="concepto">
+<b>Observación:</b> El ciclo se ejecuta exactamente 10 veces porque inicia
+en 1 y termina cuando i llega a 10.
+</div>
 <h2>Ejercicio práctico</h2>
 
 <p>
@@ -144,7 +163,48 @@ public class Ciclos {
     <li>Si un número dividido para 2 tiene residuo 0, significa que es par.</li>
     <li>Solo los números pares son impresos en pantalla.</li>
 </ul>
+<h2>Errores comunes</h2>
 
+<ul>
+    <li>Olvidar incrementar la variable del ciclo.</li>
+    <li>Utilizar una condición incorrecta.</li>
+    <li>Crear ciclos infinitos sin querer.</li>
+    <li>Confundir el operador % con la división.</li>
+</ul>
+    <h2>Más ejercicios para practicar</h2>
+
+<h3>Nivel básico</h3>
+
+<p>
+Mostrar los números del 1 al 50.
+</p>
+
+<h3>Nivel intermedio</h3>
+
+<p>
+Mostrar todos los números impares entre 1 y 100.
+</p>
+
+<h3>Nivel avanzado</h3>
+
+<p>
+Solicitar un número al usuario y mostrar su tabla de multiplicar.
+</p>
+
+    <h2>Preguntas frecuentes</h2>
+
+<p><b>¿Cuál es la diferencia entre for y while?</b></p>
+
+<p>
+El ciclo for se utiliza cuando conocemos el número de repeticiones,
+mientras que while se utiliza cuando la repetición depende de una condición.
+</p>
+
+<p><b>¿Qué es un ciclo infinito?</b></p>
+
+<p>
+Es un ciclo que nunca termina porque su condición siempre es verdadera.
+</p>
     <h2>Conclusión</h2>
 
 <p>
