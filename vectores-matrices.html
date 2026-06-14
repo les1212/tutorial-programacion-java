@@ -9,6 +9,7 @@
 
 <header>
     <h1>Vectores y Matrices en Java</h1>
+    <p>Estructuras para almacenar y procesar varios datos</p>
 </header>
 
 <nav>
@@ -26,80 +27,64 @@
 
 <p>
 Un vector es una estructura de datos unidimensional que permite almacenar
-varios elementos del mismo tipo utilizando una sola variable.
-Cada elemento se identifica mediante una posición llamada índice.
+varios elementos del mismo tipo usando una sola variable.
 </p>
 
+<div class="concepto">
+<b>Importante:</b> Un vector permite guardar varios valores en una misma variable,
+pero cada valor se identifica por una posición llamada índice.
+</div>
+
 <p>
-Los índices comienzan desde la posición 0. Por ejemplo:
+Los índices comienzan desde la posición 0:
 </p>
+
+<pre><code>
+Índice:   0    1    2    3    4
+Vector: [10] [20] [30] [40] [50]
+</code></pre>
 
 <pre><code>
 int[] numeros = {10, 20, 30, 40, 50};
 </code></pre>
 
-<p>
-En este vector:
-</p>
-
-<ul>
-    <li>numeros[0] = 10</li>
-    <li>numeros[1] = 20</li>
-    <li>numeros[2] = 30</li>
-    <li>numeros[3] = 40</li>
-    <li>numeros[4] = 50</li>
-</ul>
-
 <h2>¿Para qué sirven los vectores?</h2>
 
 <ul>
-    <li>Almacenar conjuntos de datos.</li>
     <li>Guardar notas de estudiantes.</li>
     <li>Registrar temperaturas.</li>
     <li>Almacenar ventas o inventarios.</li>
-    <li>Realizar cálculos estadísticos.</li>
+    <li>Realizar sumas, promedios, máximos y mínimos.</li>
 </ul>
 
 <h2>Recorrido de un vector</h2>
 
-<p>
-Para acceder a todos los elementos de un vector generalmente se utiliza un ciclo for.
-</p>
-
 <pre><code>
 for(int i = 0; i < numeros.length; i++) {
-
     System.out.println(numeros[i]);
-
 }
 </code></pre>
 
-<p>
-La propiedad <b>length</b> indica la cantidad de elementos que posee el vector.
-</p>
+<h2>Análisis línea por línea</h2>
 
-<h2>Ejemplo de vector</h2>
-
-<pre><code>
-int[] edades = {18, 20, 19, 22, 21};
-
-for(int i = 0; i < edades.length; i++) {
-
-    System.out.println(edades[i]);
-
-}
-</code></pre>
+<ul>
+    <li><b>int i = 0</b> inicia el recorrido en la primera posición.</li>
+    <li><b>i < numeros.length</b> evita salir del tamaño del vector.</li>
+    <li><b>i++</b> avanza a la siguiente posición.</li>
+    <li><b>numeros[i]</b> accede al elemento actual.</li>
+</ul>
 
 <h2>¿Qué son las matrices?</h2>
 
 <p>
 Una matriz es una estructura bidimensional formada por filas y columnas.
-Puede considerarse como una tabla donde cada posición almacena un valor.
+Se puede imaginar como una tabla.
 </p>
 
-<p>
-La declaración de una matriz es la siguiente:
-</p>
+<div class="concepto">
+<b>Importante:</b> En una matriz se usan dos índices: uno para la fila y otro
+para la columna.
+</div>
 
 <pre><code>
 int[][] matriz = {
@@ -110,13 +95,13 @@ int[][] matriz = {
 </code></pre>
 
 <p>
-Visualmente la matriz se representa así:
+Visualmente:
 </p>
 
 <pre><code>
-1  2  3
-4  5  6
-7  8  9
+Fila 0:  1  2  3
+Fila 1:  4  5  6
+Fila 2:  7  8  9
 </code></pre>
 
 <h2>¿Para qué sirven las matrices?</h2>
@@ -126,14 +111,14 @@ Visualmente la matriz se representa así:
     <li>Almacenar calificaciones.</li>
     <li>Gestionar ventas por sucursal.</li>
     <li>Trabajar con imágenes digitales.</li>
-    <li>Resolver problemas matemáticos.</li>
+    <li>Resolver problemas con filas y columnas.</li>
 </ul>
 
 <h2>Recorrido de una matriz</h2>
 
 <p>
 Para recorrer una matriz se utilizan ciclos anidados.
-El primer ciclo controla las filas y el segundo las columnas.
+El primer ciclo recorre las filas y el segundo las columnas.
 </p>
 
 <pre><code>
@@ -146,14 +131,23 @@ for(int i = 0; i < matriz.length; i++) {
     }
 
     System.out.println();
-
 }
 </code></pre>
+
+<h2>Análisis del recorrido de una matriz</h2>
+
+<ul>
+    <li><b>i</b> representa la fila actual.</li>
+    <li><b>j</b> representa la columna actual.</li>
+    <li><b>matriz[i][j]</b> accede a una posición específica.</li>
+    <li>El primer for controla las filas.</li>
+    <li>El segundo for controla las columnas.</li>
+</ul>
 
 <h2>Ejemplo explicado</h2>
 
 <p>
-El siguiente programa calcula la suma de los elementos de un vector y posteriormente
+El siguiente programa calcula la suma de los elementos de un vector y luego
 muestra una matriz en pantalla.
 </p>
 
@@ -167,9 +161,7 @@ public class VectoresMatrices {
         int suma = 0;
 
         for(int i = 0; i < vector.length; i++) {
-
             suma += vector[i];
-
         }
 
         System.out.println("Suma = " + suma);
@@ -183,13 +175,10 @@ public class VectoresMatrices {
         for(int i = 0; i < matriz.length; i++) {
 
             for(int j = 0; j < matriz[i].length; j++) {
-
                 System.out.print(matriz[i][j] + " ");
-
             }
 
             System.out.println();
-
         }
     }
 }
@@ -198,11 +187,31 @@ public class VectoresMatrices {
 <h2>Explicación del código</h2>
 
 <ul>
-    <li>Se crea un vector con cuatro elementos.</li>
-    <li>Mediante un ciclo for se calcula la suma de todos los valores.</li>
-    <li>Se crea una matriz de 3 filas y 3 columnas.</li>
-    <li>Se utilizan ciclos anidados para recorrer toda la matriz.</li>
-    <li>Cada elemento es mostrado en pantalla.</li>
+    <li>Se crea un vector con cuatro números.</li>
+    <li>Se declara la variable suma para acumular valores.</li>
+    <li>El ciclo for recorre el vector completo.</li>
+    <li>Se suma cada valor usando <b>suma += vector[i]</b>.</li>
+    <li>Después se crea una matriz de 3 filas y 3 columnas.</li>
+    <li>Los ciclos anidados recorren toda la matriz.</li>
+</ul>
+
+<h2>Aplicaciones reales</h2>
+
+<ul>
+    <li>Notas de estudiantes por parcial.</li>
+    <li>Ventas por sucursal y por producto.</li>
+    <li>Horarios organizados por días y horas.</li>
+    <li>Imágenes representadas como matrices de píxeles.</li>
+</ul>
+
+<h2>Errores comunes</h2>
+
+<ul>
+    <li>Intentar acceder a una posición que no existe.</li>
+    <li>Olvidar que los índices empiezan en 0.</li>
+    <li>Confundir filas con columnas.</li>
+    <li>Usar mal la propiedad <b>length</b>.</li>
+    <li>Olvidar usar ciclos anidados para matrices.</li>
 </ul>
 
 <h2>Ejercicio práctico</h2>
@@ -211,7 +220,7 @@ public class VectoresMatrices {
 Desarrollar un programa que almacene cinco números en un vector y calcule su promedio.
 </p>
 
-<h2>Solución</h2>
+<h2>Solución completa</h2>
 
 <pre><code>
 public class PromedioVector {
@@ -223,15 +232,12 @@ public class PromedioVector {
         int suma = 0;
 
         for(int i = 0; i < numeros.length; i++) {
-
             suma += numeros[i];
-
         }
 
-        double promedio = (double)suma / numeros.length;
+        double promedio = (double) suma / numeros.length;
 
         System.out.println("Promedio = " + promedio);
-
     }
 }
 </code></pre>
@@ -239,19 +245,66 @@ public class PromedioVector {
 <h2>Explicación de la solución</h2>
 
 <ul>
-    <li>Se almacena la información en un vector.</li>
-    <li>Se suman todos los elementos.</li>
-    <li>La suma se divide para la cantidad de elementos.</li>
-    <li>El resultado corresponde al promedio.</li>
+    <li>Se crea un vector llamado numeros.</li>
+    <li>La variable suma inicia en 0.</li>
+    <li>El ciclo for recorre todos los elementos.</li>
+    <li>Cada número se acumula en la variable suma.</li>
+    <li>Se calcula el promedio dividiendo la suma para la cantidad de elementos.</li>
+</ul>
+
+<h2>Más ejercicios para practicar</h2>
+
+<h3>Nivel básico</h3>
+<p>Mostrar todos los elementos de un vector.</p>
+
+<h3>Nivel intermedio</h3>
+<p>Calcular el número mayor dentro de un vector.</p>
+
+<h3>Nivel avanzado</h3>
+<p>Calcular la suma de cada fila de una matriz.</p>
+
+<h2>Preguntas frecuentes</h2>
+
+<p><b>¿Cuál es la diferencia entre vector y matriz?</b></p>
+<p>
+Un vector tiene una sola dimensión. Una matriz tiene dos dimensiones: filas y columnas.
+</p>
+
+<p><b>¿Por qué los índices comienzan en 0?</b></p>
+<p>
+Porque Java utiliza la posición 0 como el primer espacio de almacenamiento.
+</p>
+
+<p><b>¿Qué significa length?</b></p>
+<p>
+length devuelve la cantidad de elementos de un vector o la cantidad de filas de una matriz.
+</p>
+
+<h2>Relación con otros temas</h2>
+
+<p>
+Los vectores y matrices se relacionan directamente con ciclos, porque se necesita
+recorrer sus elementos. También se relacionan con métodos, ya que se pueden crear
+funciones para calcular sumas, promedios, máximos y mínimos.
+</p>
+
+<h2>Resumen</h2>
+
+<ul>
+    <li>Los vectores almacenan datos en una sola dimensión.</li>
+    <li>Las matrices almacenan datos en filas y columnas.</li>
+    <li>Los índices empiezan en 0.</li>
+    <li>Los vectores se recorren con un ciclo for.</li>
+    <li>Las matrices se recorren con ciclos anidados.</li>
 </ul>
 
 <h2>Conclusión</h2>
 
 <p>
 Los vectores y matrices son estructuras fundamentales en programación.
-Permiten almacenar y organizar grandes cantidades de información de manera eficiente.
-Su uso es indispensable en aplicaciones que manejan datos numéricos, registros,
-estadísticas e incluso procesamiento de imágenes.
+Permiten almacenar, organizar y procesar grandes cantidades de información.
+Su uso es indispensable para resolver problemas con datos numéricos, registros,
+estadísticas, ventas e incluso procesamiento de imágenes.
 </p>
 
 <p>
@@ -262,6 +315,10 @@ Ver VectoresMatrices.java
 </p>
 
 </main>
+
+<footer>
+    <p>Autora: Lesly Nicole Reivan Rubio</p>
+</footer>
 
 </body>
 </html>
