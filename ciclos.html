@@ -30,7 +30,7 @@ el mismo código repetidamente.
 </p>
 <div class="concepto">
 <b>Importante:</b> Los ciclos permiten repetir instrucciones automáticamente,
-evitando escribir el mismo código muchas veces.
+evidento escribir el mismo código muchas veces.
 </div>
 <p>
 Imagina que deseas imprimir los números del 1 al 10. Sin un ciclo tendrías que escribir:
@@ -94,11 +94,19 @@ Cada parte cumple una función:
     <li><b>Incremento:</b> Actualiza la variable de control.</li>
 </ul>
 
-<h2>Ejemplo explicado</h2>
+<h2>Ejemplo explicado: números del 1 al 10</h2>
 
 <pre><code>
-for(int i = 1; i <= 10; i++) {
-    System.out.println(i);
+public class EjemploFor {
+
+    public static void main(String[] args) {
+
+        // El ciclo inicia en 1, se repite mientras i sea menor o igual a 10
+        // y en cada repetición aumenta i en 1
+        for(int i = 1; i <= 10; i++) {
+            System.out.println(i);  // Imprime el valor actual de i
+        }
+    }
 }
 </code></pre>
 
@@ -126,11 +134,148 @@ Salida:
 9
 10
 </code></pre>
+
 <div class="concepto">
 <b>Observación:</b> El ciclo se ejecuta exactamente 10 veces porque inicia
 en 1 y termina cuando i llega a 10.
 </div>
-<h2>Ejercicio práctico</h2>
+
+<h2>Ciclo While</h2>
+
+<p>
+El ciclo <b>while</b> se utiliza cuando no se conoce de antemano el número de repeticiones.
+Primero evalúa la condición y, si es verdadera, ejecuta el bloque de código.
+</p>
+
+<pre><code>
+while(condición){
+    instrucciones;
+}
+</code></pre>
+
+<h2>Ejemplo explicado: contar hasta 5 con while</h2>
+
+<pre><code>
+public class EjemploWhile {
+
+    public static void main(String[] args) {
+
+        int i = 1;  // Inicializamos la variable fuera del ciclo
+
+        // El ciclo se repite mientras i sea menor o igual a 5
+        while(i <= 5) {
+            System.out.println("Número: " + i);  // Imprime el valor actual
+            i++;  // Incrementamos la variable para evitar ciclo infinito
+        }
+    }
+}
+</code></pre>
+
+<p>
+Salida:
+</p>
+
+<pre><code>
+Número: 1
+Número: 2
+Número: 3
+Número: 4
+Número: 5
+</code></pre>
+
+<div class="concepto">
+<b>Importante:</b> La variable de control debe actualizarse dentro del ciclo,
+de lo contrario se crearía un ciclo infinito.
+</div>
+
+<h2>Ciclo Do While</h2>
+
+<p>
+El ciclo <b>do while</b> es similar al while, pero garantiza que el bloque de código
+se ejecute al menos una vez, porque la condición se evalúa al final.
+</p>
+
+<pre><code>
+do{
+    instrucciones;
+} while(condición);
+</code></pre>
+
+<h2>Ejemplo explicado: menú que se repite al menos una vez</h2>
+
+<pre><code>
+public class EjemploDoWhile {
+
+    public static void main(String[] args) {
+
+        int opcion = 1;  // Opción inicial
+
+        // El bloque se ejecuta al menos una vez antes de evaluar la condición
+        do {
+            System.out.println("1. Ingresar datos");
+            System.out.println("2. Mostrar resultados");
+            System.out.println("3. Salir");
+            System.out.println("Opción elegida: " + opcion);
+            opcion++;  // Simulamos que el usuario cambia de opción
+        } while(opcion <= 3);  // Repite mientras opcion sea menor o igual a 3
+    }
+}
+</code></pre>
+
+<p>
+Salida:
+</p>
+
+<pre><code>
+1. Ingresar datos
+2. Mostrar resultados
+3. Salir
+Opción elegida: 1
+1. Ingresar datos
+2. Mostrar resultados
+3. Salir
+Opción elegida: 2
+1. Ingresar datos
+2. Mostrar resultados
+3. Salir
+Opción elegida: 3
+</code></pre>
+
+<div class="concepto">
+<b>Diferencia clave:</b> El do while ejecuta el código al menos una vez,
+incluso si la condición es falsa desde el inicio.
+</div>
+
+<h2>Comparación entre los tres ciclos</h2>
+
+<table border="1">
+    <tr>
+        <th>Ciclo</th>
+        <th>¿Cuándo usarlo?</th>
+        <th>¿Evalúa la condición antes o después?</th>
+        <th>¿Garantiza al menos una ejecución?</th>
+    </tr>
+    <tr>
+        <td>for</td>
+        <td>Cuando se conoce el número de repeticiones</td>
+        <td>Antes</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td>while</td>
+        <td>Cuando la repetición depende de una condición</td>
+        <td>Antes</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td>do while</td>
+        <td>Cuando debe ejecutarse al menos una vez</td>
+        <td>Después</td>
+        <td>Sí</td>
+    </tr>
+</table>
+
+<h2>Ejercicio práctico: números pares del 1 al 20</h2>
 
 <p>
 Desarrollar un programa que muestre todos los números pares del 1 al 20.
@@ -139,16 +284,20 @@ Desarrollar un programa que muestre todos los números pares del 1 al 20.
 <h2>Solución</h2>
 
 <pre><code>
-public class Ciclos {
+public class EjercicioCiclos {
 
     public static void main(String[] args) {
 
+        // Mensaje inicial para indicar qué se mostrará
+        System.out.println("Números pares del 1 al 20:");
+
+        // El ciclo recorre los números del 1 al 20
         for(int i = 1; i <= 20; i++) {
 
+            // El operador % calcula el residuo de la división para 2
+            // Si el residuo es 0, el número es par
             if(i % 2 == 0) {
-
-                System.out.println(i);
-
+                System.out.println(i);  // Imprime solo los números pares
             }
         }
     }
@@ -163,6 +312,7 @@ public class Ciclos {
     <li>Si un número dividido para 2 tiene residuo 0, significa que es par.</li>
     <li>Solo los números pares son impresos en pantalla.</li>
 </ul>
+
 <h2>Errores comunes</h2>
 
 <ul>
@@ -170,25 +320,27 @@ public class Ciclos {
     <li>Utilizar una condición incorrecta.</li>
     <li>Crear ciclos infinitos sin querer.</li>
     <li>Confundir el operador % con la división.</li>
+    <li>No inicializar la variable antes de usar while.</li>
 </ul>
+
     <h2>Más ejercicios para practicar</h2>
 
 <h3>Nivel básico</h3>
 
 <p>
-Mostrar los números del 1 al 50.
+Mostrar los números del 1 al 50 usando un ciclo for.
 </p>
 
 <h3>Nivel intermedio</h3>
 
 <p>
-Mostrar todos los números impares entre 1 y 100.
+Mostrar todos los números impares entre 1 y 100 usando while.
 </p>
 
 <h3>Nivel avanzado</h3>
 
 <p>
-Solicitar un número al usuario y mostrar su tabla de multiplicar.
+Solicitar un número al usuario y mostrar su tabla de multiplicar usando do while.
 </p>
 
     <h2>Preguntas frecuentes</h2>
@@ -205,32 +357,58 @@ mientras que while se utiliza cuando la repetición depende de una condición.
 <p>
 Es un ciclo que nunca termina porque su condición siempre es verdadera.
 </p>
+
+<p><b>¿Cuándo usar do while en lugar de while?</b></p>
+
+<p>
+Cuando necesitas que el bloque de código se ejecute al menos una vez,
+como en menús de opciones o validaciones de entrada de usuario.
+</p>
+
     <h2>Conclusión</h2>
 
 <p>
 Los ciclos son herramientas fundamentales en programación porque permiten
-automatizar tareas repetitivas. El ciclo for es ideal cuando se conoce
-la cantidad de repeticiones, mientras que while y do while son útiles
-cuando la repetición depende de una condición.
+automatizar tareas repetitivas. El ciclo <b>for</b> es ideal cuando se conoce
+la cantidad de repeticiones, <b>while</b> es útil cuando la repetición depende
+de una condición, y <b>do while</b> garantiza que el código se ejecute al menos una vez.
 </p>
-    
-    <p>
-        Código en GitHub:
-        <a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigos/Ciclos.java">
-            Ver Ciclos.java
-        </a>
-    </p>
+
+<h2>Código en GitHub</h2>
+
 <p>
-Código del ejercicio resuelto:
-<a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigos/EjerciciosPracticos/EjercicioCiclos.java">
-Ver EjercicioCiclos.java
+Ejemplo teórico (for):
+<a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigos/EjemploFor.java">
+    Ver EjemploFor.java
 </a>
 </p>
-    
+
+<p>
+Ejemplo teórico (while):
+<a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigos/EjemploWhile.java">
+    Ver EjemploWhile.java
+</a>
+</p>
+
+<p>
+Ejemplo teórico (do while):
+<a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigos/EjemploDoWhile.java">
+    Ver EjemploDoWhile.java
+</a>
+</p>
+
+<p>
+Ejercicio resuelto:
+<a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigos/EjerciciosPracticos/EjercicioCiclos.java">
+    Ver EjercicioCiclos.java
+</a>
+</p>
+
 </main>
+
 <footer>
     <p>Autora: Lesly Nicole Reivan Rubio</p>
 </footer>
-    
+
 </body>
 </html>
