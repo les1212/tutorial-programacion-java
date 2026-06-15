@@ -143,39 +143,42 @@ while((linea = br.readLine()) != null){
     <li><b>System.out.println(linea);</b> muestra la línea en pantalla.</li>
 </ul>
 
-<h2>Ejemplo explicado</h2>
+<h2>Ejemplo explicado: leer un archivo de saludos</h2>
 
 <p>
-El siguiente programa abre un archivo CSV llamado <b>datos.csv</b> y muestra todo
-su contenido en pantalla.
+El siguiente programa abre un archivo de texto llamado <b>saludos.txt</b> y muestra
+su contenido en pantalla. Este es un ejemplo básico para entender la lectura de archivos.
 </p>
 
 <pre><code>
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-public class ManejoArchivos {
+public class EjemploArchivos {
 
     public static void main(String[] args) {
 
-        String archivo = "datos.csv";
+        // Nombre del archivo que vamos a leer
+        String archivo = "saludos.txt";
 
+        // try-catch maneja posibles errores (archivo no encontrado, etc.)
         try {
 
-            BufferedReader br =
-                new BufferedReader(
-                new FileReader(archivo));
+            // Creamos el lector del archivo
+            BufferedReader br = new BufferedReader(new FileReader(archivo));
 
-            String linea;
+            String linea;  // Variable para guardar cada línea
 
+            // El ciclo lee cada línea mientras existan más líneas
             while((linea = br.readLine()) != null) {
-                System.out.println(linea);
+                System.out.println(linea);  // Muestra la línea en pantalla
             }
 
-            br.close();
+            br.close();  // Cerramos el archivo para liberar recursos
 
         } catch(Exception e) {
 
+            // Si ocurre un error, mostramos el mensaje
             System.out.println("Error: " + e.getMessage());
 
         }
@@ -211,11 +214,30 @@ public class ManejoArchivos {
     CSV dentro de la carpeta principal del proyecto.
 </div>
 
-<h2>Ejercicio práctico</h2>
+<h2>Procesar datos de un CSV: separar por comas</h2>
+
+<p>
+Cuando leemos un archivo CSV, a menudo necesitamos separar cada valor por comas.
+Para esto usamos el método <b>split(",")</b>, que divide un texto en partes.
+</p>
+
+<pre><code>
+// Si linea contiene: "Ana,20,Quito"
+String[] datos = linea.split(",");
+// datos[0] = "Ana"
+// datos[1] = "20"
+// datos[2] = "Quito"
+</code></pre>
+
+<div class="concepto">
+    <b>Importante:</b> split(",") devuelve un arreglo de String con cada valor separado.
+</div>
+
+<h2>Ejercicio práctico: leer y procesar un archivo CSV</h2>
 
 <p>
 Desarrollar un programa que lea un archivo CSV llamado <b>datos.csv</b> y muestre
-todas sus líneas en pantalla.
+cada registro con formato legible, separando los datos por comas.
 </p>
 
 <h2>Solución completa</h2>
@@ -224,30 +246,39 @@ todas sus líneas en pantalla.
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-public class LeerArchivo {
+public class EjercicioLeerArchivo {
 
     public static void main(String[] args) {
 
+        // Nombre del archivo CSV a leer
         String archivo = "datos.csv";
 
+        // Manejamos posibles errores con try-catch
         try {
 
-            BufferedReader br =
-                new BufferedReader(
-                new FileReader(archivo));
+            // Abrimos el archivo para lectura
+            BufferedReader br = new BufferedReader(new FileReader(archivo));
 
-            String linea;
+            String linea;  // Guarda cada línea del archivo
 
+            // Leemos línea por línea hasta que no haya más
             while((linea = br.readLine()) != null) {
 
-                System.out.println(linea);
+                // Separamos los datos por comas
+                String[] datos = linea.split(",");
 
+                // Mostramos cada dato con formato claro
+                System.out.println("--------------------------");
+                System.out.println("Nombre: " + datos[0]);
+                System.out.println("Edad: " + datos[1]);
+                System.out.println("Ciudad: " + datos[2]);
             }
 
-            br.close();
+            br.close();  // Cerramos el archivo
 
         } catch(Exception e) {
 
+            // Mostramos el error si algo falla
             System.out.println("Error: " + e.getMessage());
 
         }
@@ -260,10 +291,49 @@ public class LeerArchivo {
 <ul>
     <li>El programa intenta abrir el archivo <b>datos.csv</b>.</li>
     <li>Si el archivo existe, se lee línea por línea.</li>
-    <li>Cada línea se muestra en consola.</li>
+    <li><b>split(",")</b> divide cada línea en partes separadas por comas.</li>
+    <li>Cada parte se muestra con un formato claro y legible.</li>
     <li>Cuando termina la lectura, se cierra el archivo.</li>
     <li>Si ocurre un error, el programa muestra un mensaje explicando el problema.</li>
 </ul>
+
+<h2>Escritura de archivos (concepto básico)</h2>
+
+<p>
+Además de leer, Java también permite escribir en archivos. Para esto se usan las clases
+<b>FileWriter</b> y <b>BufferedWriter</b>.
+</p>
+
+<pre><code>
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
+public class EscribirArchivo {
+
+    public static void main(String[] args) {
+
+        try {
+
+            // Abrimos el archivo para escribir (true = agregar, false = sobrescribir)
+            BufferedWriter bw = new BufferedWriter(new FileWriter("salida.txt", true));
+
+            bw.write("Nueva línea de texto");  // Escribimos una línea
+            bw.newLine();  // Agregamos un salto de línea
+            bw.close();  // Cerramos el archivo
+
+            System.out.println("Archivo escrito correctamente.");
+
+        } catch(Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+</code></pre>
+
+<div class="concepto">
+    <b>Nota:</b> El segundo parámetro de FileWriter indica si se agrega al archivo (true)
+    o si se sobrescribe (false).
+</div>
 
 <h2>Preguntas frecuentes</h2>
 
@@ -282,6 +352,12 @@ en forma de tabla.
 <p>
 Sí. El mismo procedimiento sirve para leer archivos de texto, cambiando el nombre
 del archivo, por ejemplo <b>datos.txt</b>.
+</p>
+
+<p><b>¿Por qué usar try-catch?</b></p>
+<p>
+Porque la lectura de archivos puede fallar (archivo no existe, permisos denegados, etc.).
+El try-catch permite que el programa no se detenga abruptamente.
 </p>
 
 <h2>Relación con otros temas</h2>
@@ -303,8 +379,10 @@ matriz para calcular totales, promedios o estadísticas.
     <li>Los archivos permiten guardar información de forma permanente.</li>
     <li>Java puede leer archivos usando <b>FileReader</b> y <b>BufferedReader</b>.</li>
     <li>El método <b>readLine()</b> permite leer una línea a la vez.</li>
+    <li>El método <b>split(",")</b> separa los datos de un CSV.</li>
     <li>Los archivos CSV guardan datos separados por comas.</li>
     <li>El bloque <b>try-catch</b> permite manejar errores durante la lectura.</li>
+    <li>Para escribir archivos se usan <b>FileWriter</b> y <b>BufferedWriter</b>.</li>
 </ul>
 
 <h2>Conclusión</h2>
@@ -316,18 +394,29 @@ FileReader y BufferedReader facilitan la lectura de archivos de texto y CSV de u
 forma sencilla, permitiendo desarrollar programas más útiles y completos.
 </p>
 
+<h2>Código en GitHub</h2>
+
 <p>
-Código completo en GitHub:
-<a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigos/ManejoArchivos.java">
-Ver ManejoArchivos.java
+Ejemplo teórico (lectura básica):
+<a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigos/EjemploArchivos.java">
+    Ver EjemploArchivos.java
 </a>
 </p>
+
 <p>
-Código del ejercicio resuelto:
+Ejercicio resuelto (lectura CSV con split):
 <a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigos/EjerciciosPracticos/EjercicioLeerArchivo.java">
-Ver EjercicioLeerArchivo.java
+    Ver EjercicioLeerArchivo.java
 </a>
 </p>
+
+<p>
+Ejemplo adicional (escritura de archivos):
+<a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigos/EjemploEscribirArchivo.java">
+    Ver EjemploEscribirArchivo.java
+</a>
+</p>
+
 </main>
 
 <footer>
