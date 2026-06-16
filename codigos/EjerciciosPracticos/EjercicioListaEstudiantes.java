@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 
-public class EjercicioListaEstudiantes {
+public class ListaEstudiantes {
 
     public static void main(String[] args) {
+
         ArrayList<String> estudiantes = new ArrayList<>();
 
         estudiantes.add("Juan");
@@ -11,7 +12,7 @@ public class EjercicioListaEstudiantes {
         estudiantes.add("Ana");
         estudiantes.add("Carlos");
 
-        for(String estudiante : estudiantes) {
+        for (String estudiante : estudiantes) {
             System.out.println(estudiante);
         }
     }
