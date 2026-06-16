@@ -9,9 +9,7 @@ public class ListasJava {
         productos.add("Arroz");
         productos.add("Leche");
         productos.add("Pan");
-        productos.add("Azucar");
-
-        System.out.println("Lista de productos:");
+        productos.add("Azúcar");
 
         for (String producto : productos) {
             System.out.println(producto);
