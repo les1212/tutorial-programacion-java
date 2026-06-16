@@ -45,6 +45,7 @@ Vector: [10] [20] [30] [40] [50]
 </code></pre>
 
 <pre><code>
+// Declaramos un vector de números enteros con 5 elementos
 int[] numeros = {10, 20, 30, 40, 50};
 </code></pre>
 
@@ -52,15 +53,23 @@ int[] numeros = {10, 20, 30, 40, 50};
 
 <ul>
     <li>Guardar notas de estudiantes.</li>
-    <li>Registrar temperaturas.</li>
-    <li>Almacenar ventas o inventarios.</li>
+    <li>Registrar temperaturas de cada día.</li>
+    <li>Almacenar ventas diarias o semanales.</li>
     <li>Realizar sumas, promedios, máximos y mínimos.</li>
+    <li>Ordenar listas de números.</li>
 </ul>
 
 <h2>Recorrido de un vector</h2>
 
+<p>
+Para recorrer un vector, usamos un ciclo <b>for</b> que avanza desde la posición 0
+hasta la última posición del vector.
+</p>
+
 <pre><code>
+// Recorremos el vector desde la posición 0 hasta el final
 for(int i = 0; i < numeros.length; i++) {
+    // Mostramos cada elemento usando su índice
     System.out.println(numeros[i]);
 }
 </code></pre>
@@ -72,13 +81,32 @@ for(int i = 0; i < numeros.length; i++) {
     <li><b>i < numeros.length</b> evita salir del tamaño del vector.</li>
     <li><b>i++</b> avanza a la siguiente posición.</li>
     <li><b>numeros[i]</b> accede al elemento actual.</li>
+    <li><b>numeros.length</b> devuelve la cantidad total de elementos.</li>
 </ul>
+
+<h2>Vector vacío: crear sin valores iniciales</h2>
+
+<p>
+También podemos crear un vector sin datos al inicio, especificando solo el tamaño.
+Luego asignamos valores posición por posición.
+</p>
+
+<pre><code>
+// Creamos un vector vacío de 4 espacios para números decimales
+double[] temperaturas = new double[4];
+
+// Asignamos un valor a cada posición manualmente
+temperaturas[0] = 22.5;  // Primera posición
+temperaturas[1] = 24.0;  // Segunda posición
+temperaturas[2] = 19.8;  // Tercera posición
+temperaturas[3] = 21.0;  // Cuarta posición
+</code></pre>
 
 <h2>¿Qué son las matrices?</h2>
 
 <p>
 Una matriz es una estructura bidimensional formada por filas y columnas.
-Se puede imaginar como una tabla.
+Se puede imaginar como una tabla o una hoja de cálculo.
 </p>
 
 <div class="concepto">
@@ -87,10 +115,11 @@ para la columna.
 </div>
 
 <pre><code>
+// Declaramos una matriz de 3 filas y 3 columnas
 int[][] matriz = {
-    {1, 2, 3},
-    {4, 5, 6},
-    {7, 8, 9}
+    {1, 2, 3},   // Fila 0
+    {4, 5, 6},   // Fila 1
+    {7, 8, 9}    // Fila 2
 };
 </code></pre>
 
@@ -104,13 +133,43 @@ Fila 1:  4  5  6
 Fila 2:  7  8  9
 </code></pre>
 
+<h2>Tabla comparativa: vector vs. matriz</h2>
+
+<table>
+    <tr>
+        <th>Característica</th>
+        <th>Vector</th>
+        <th>Matriz</th>
+    </tr>
+    <tr>
+        <td>Dimensiones</td>
+        <td>1 (solo una fila)</td>
+        <td>2 (filas y columnas)</td>
+    </tr>
+    <tr>
+        <td>Índices</td>
+        <td>Uno: [i]</td>
+        <td>Dos: [fila][columna]</td>
+    </tr>
+    <tr>
+        <td>Ciclos para recorrer</td>
+        <td>1 ciclo for</td>
+        <td>2 ciclos for anidados</td>
+    </tr>
+    <tr>
+        <td>Ejemplo real</td>
+        <td>Notas de un solo estudiante</td>
+        <td>Notas de varios estudiantes por materia</td>
+    </tr>
+</table>
+
 <h2>¿Para qué sirven las matrices?</h2>
 
 <ul>
     <li>Representar tablas de datos.</li>
-    <li>Almacenar calificaciones.</li>
-    <li>Gestionar ventas por sucursal.</li>
-    <li>Trabajar con imágenes digitales.</li>
+    <li>Almacenar calificaciones de múltiples estudiantes.</li>
+    <li>Gestionar ventas por sucursal y por producto.</li>
+    <li>Trabajar con imágenes digitales (píxeles).</li>
     <li>Resolver problemas con filas y columnas.</li>
 </ul>
 
@@ -122,14 +181,17 @@ El primer ciclo recorre las filas y el segundo las columnas.
 </p>
 
 <pre><code>
+// Recorremos cada fila de la matriz
 for(int i = 0; i < matriz.length; i++) {
 
+    // Recorremos cada columna de la fila actual
     for(int j = 0; j < matriz[i].length; j++) {
 
+        // Mostramos el elemento en la fila i, columna j
         System.out.print(matriz[i][j] + " ");
-
     }
 
+    // Saltamos a la siguiente línea después de cada fila
     System.out.println();
 }
 </code></pre>
@@ -142,6 +204,8 @@ for(int i = 0; i < matriz.length; i++) {
     <li><b>matriz[i][j]</b> accede a una posición específica.</li>
     <li>El primer for controla las filas.</li>
     <li>El segundo for controla las columnas.</li>
+    <li><b>matriz.length</b> da la cantidad de filas.</li>
+    <li><b>matriz[i].length</b> da la cantidad de columnas de la fila i.</li>
 </ul>
 
 <h2>Ejemplo explicado</h2>
@@ -154,30 +218,41 @@ muestra una matriz en pantalla.
 <pre><code>
 public class VectoresMatrices {
 
+    // Método principal donde inicia el programa
     public static void main(String[] args) {
 
+        // Creamos un vector con cuatro números enteros
         int[] vector = {5, 10, 15, 20};
 
+        // Variable para acumular la suma de los elementos
         int suma = 0;
 
+        // Recorremos el vector para sumar cada elemento
         for(int i = 0; i < vector.length; i++) {
+            // Acumulamos el valor actual en la variable suma
             suma += vector[i];
         }
 
+        // Mostramos el resultado de la suma
         System.out.println("Suma = " + suma);
 
+        // Creamos una matriz de 3 filas y 3 columnas
         int[][] matriz = {
-            {1,2,3},
-            {4,5,6},
-            {7,8,9}
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
         };
 
+        // Recorremos la matriz con ciclos anidados
         for(int i = 0; i < matriz.length; i++) {
 
+            // Recorremos cada columna de la fila actual
             for(int j = 0; j < matriz[i].length; j++) {
+                // Mostramos el elemento con espacio para separar
                 System.out.print(matriz[i][j] + " ");
             }
 
+            // Salto de línea después de cada fila
             System.out.println();
         }
     }
@@ -193,6 +268,7 @@ public class VectoresMatrices {
     <li>Se suma cada valor usando <b>suma += vector[i]</b>.</li>
     <li>Después se crea una matriz de 3 filas y 3 columnas.</li>
     <li>Los ciclos anidados recorren toda la matriz.</li>
+    <li>Se imprime cada fila en una línea diferente.</li>
 </ul>
 
 <h2>Aplicaciones reales</h2>
@@ -202,19 +278,22 @@ public class VectoresMatrices {
     <li>Ventas por sucursal y por producto.</li>
     <li>Horarios organizados por días y horas.</li>
     <li>Imágenes representadas como matrices de píxeles.</li>
+    <li>Registro de temperaturas por ciudad y por día.</li>
+    <li>Asientos de un cine o avión organizados por filas y columnas.</li>
 </ul>
 
 <h2>Errores comunes</h2>
 
 <ul>
-    <li>Intentar acceder a una posición que no existe.</li>
-    <li>Olvidar que los índices empiezan en 0.</li>
-    <li>Confundir filas con columnas.</li>
-    <li>Usar mal la propiedad <b>length</b>.</li>
-    <li>Olvidar usar ciclos anidados para matrices.</li>
+    <li>Intentar acceder a una posición que no existe (índice fuera de rango).</li>
+    <li>Olvidar que los índices empiezan en 0, no en 1.</li>
+    <li>Confundir filas con columnas al usar los índices.</li>
+    <li>Usar <b>length</b> sin paréntesis, ya que es una propiedad, no un método.</li>
+    <li>Olvidar usar ciclos anidados para recorrer matrices.</li>
+    <li>Intentar guardar datos de tipos diferentes en un mismo vector.</li>
 </ul>
 
-<h2>Ejercicio práctico</h2>
+<h2>Ejercicio práctico: promedio de un vector</h2>
 
 <p>
 Desarrollar un programa que almacene cinco números en un vector y calcule su promedio.
@@ -225,18 +304,25 @@ Desarrollar un programa que almacene cinco números en un vector y calcule su pr
 <pre><code>
 public class PromedioVector {
 
+    // Método principal donde inicia el programa
     public static void main(String[] args) {
 
+        // Creamos un vector con cinco números enteros
         int[] numeros = {10, 20, 30, 40, 50};
 
+        // Variable para acumular la suma de los elementos
         int suma = 0;
 
+        // Recorremos el vector para sumar cada número
         for(int i = 0; i < numeros.length; i++) {
+            // Sumamos el valor actual al acumulador
             suma += numeros[i];
         }
 
+        // Calculamos el promedio convirtiendo suma a double
         double promedio = (double) suma / numeros.length;
 
+        // Mostramos el resultado en pantalla
         System.out.println("Promedio = " + promedio);
     }
 }
@@ -249,7 +335,8 @@ public class PromedioVector {
     <li>La variable suma inicia en 0.</li>
     <li>El ciclo for recorre todos los elementos.</li>
     <li>Cada número se acumula en la variable suma.</li>
-    <li>Se calcula el promedio dividiendo la suma para la cantidad de elementos.</li>
+    <li>Se calcula el promedio dividiendo la suma entre la cantidad de elementos.</li>
+    <li>Se usa <b>(double)</b> para obtener un resultado con decimales.</li>
 </ul>
 
 <h2>Más ejercicios para practicar</h2>
@@ -258,10 +345,13 @@ public class PromedioVector {
 <p>Mostrar todos los elementos de un vector.</p>
 
 <h3>Nivel intermedio</h3>
-<p>Calcular el número mayor dentro de un vector.</p>
+<p>Calcular el número mayor y el número menor dentro de un vector.</p>
 
 <h3>Nivel avanzado</h3>
-<p>Calcular la suma de cada fila de una matriz.</p>
+<p>Calcular la suma de cada fila de una matriz y mostrar los resultados.</p>
+
+<h3>Reto adicional</h3>
+<p>Contar cuántos números pares hay en una matriz de 3x3.</p>
 
 <h2>Preguntas frecuentes</h2>
 
@@ -280,12 +370,23 @@ Porque Java utiliza la posición 0 como el primer espacio de almacenamiento.
 length devuelve la cantidad de elementos de un vector o la cantidad de filas de una matriz.
 </p>
 
+<p><b>¿Puedo cambiar el tamaño de un vector después de crearlo?</b></p>
+<p>
+No, el tamaño de un vector en Java es fijo. Si necesitas tamaño dinámico, usa una lista (ArrayList).
+</p>
+
+<p><b>¿Puedo usar un vector para guardar textos?</b></p>
+<p>
+Sí, usando String[] nombres = {"Ana", "Luis", "Carlos"};.
+</p>
+
 <h2>Relación con otros temas</h2>
 
 <p>
 Los vectores y matrices se relacionan directamente con ciclos, porque se necesita
 recorrer sus elementos. También se relacionan con métodos, ya que se pueden crear
-funciones para calcular sumas, promedios, máximos y mínimos.
+funciones para calcular sumas, promedios, máximos y mínimos. Además, se pueden
+combinar con archivos para leer o guardar datos en bloques.
 </p>
 
 <h2>Resumen</h2>
@@ -296,6 +397,7 @@ funciones para calcular sumas, promedios, máximos y mínimos.
     <li>Los índices empiezan en 0.</li>
     <li>Los vectores se recorren con un ciclo for.</li>
     <li>Las matrices se recorren con ciclos anidados.</li>
+    <li>El tamaño de un vector es fijo al momento de crearlo.</li>
 </ul>
 
 <h2>Conclusión</h2>
@@ -314,13 +416,13 @@ Ver VectoresMatrices.java
 </a>
 </p>
 
-        <p>
+<p>
 Código del ejercicio resuelto:
 <a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigos/EjerciciosPracticos/EjercicioVectoresMatrices.java">
 Ver EjercicioVectoresMatrices.java
 </a>
 </p>
-        
+
 </main>
 
 <footer>
