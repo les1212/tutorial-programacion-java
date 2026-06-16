@@ -9,6 +9,7 @@
 
 <header>
     <h1>Métodos en Java</h1>
+    <p>Organiza y reutiliza tu código</p>
 </header>
 
 <nav>
@@ -30,20 +31,21 @@ un programa. Su principal objetivo es organizar mejor el código y evitar
 repetir instrucciones innecesariamente.
 </p>
 
-    <div class="concepto">
+<div class="concepto">
 <b>Importante:</b> Los métodos permiten dividir un programa en tareas más pequeñas,
 haciendo que el código sea más fácil de entender, reutilizar y mantener.
 </div>
-    
+
 <h2>¿Para qué sirven?</h2>
 
 <ul>
     <li>Organizar mejor los programas.</li>
-    <li>Reutilizar código.</li>
+    <li>Reutilizar código en diferentes partes del programa.</li>
     <li>Reducir la repetición de instrucciones.</li>
-    <li>Facilitar el mantenimiento de un programa.</li>
-    <li>Hacer que el código sea más legible.</li>
+    <li>Facilitar el mantenimiento y la corrección de errores.</li>
+    <li>Hacer que el código sea más legible y profesional.</li>
 </ul>
+
 <h2>Aplicaciones reales</h2>
 
 <ul>
@@ -53,6 +55,7 @@ haciendo que el código sea más fácil de entender, reutilizar y mantener.
     <li>Realizar operaciones matemáticas repetitivas.</li>
     <li>Organizar programas grandes en partes más pequeñas.</li>
 </ul>
+
 <h2>Estructura de un método</h2>
 
 <p>
@@ -60,10 +63,9 @@ La estructura general de un método en Java es la siguiente:
 </p>
 
 <pre><code>
-public static tipoRetorno nombreMetodo(parametros){
-
-    instrucciones;
-
+// Declaración de un método
+public static tipoRetorno nombreMetodo(parametros) {
+    // Instrucciones que realiza el método
 }
 </code></pre>
 
@@ -73,22 +75,53 @@ Cada parte cumple una función:
 
 <ul>
     <li><b>public:</b> Indica que el método puede ser utilizado desde otras clases.</li>
-    <li><b>static:</b> Permite llamar al método sin crear un objeto.</li>
-    <li><b>tipoRetorno:</b> Es el tipo de dato que devuelve el método.</li>
-    <li><b>nombreMetodo:</b> Nombre que identifica al método.</li>
-    <li><b>parámetros:</b> Datos que recibe el método para trabajar.</li>
+    <li><b>static:</b> Permite llamar al método sin crear un objeto de la clase.</li>
+    <li><b>tipoRetorno:</b> Es el tipo de dato que devuelve el método (int, double, String, void).</li>
+    <li><b>nombreMetodo:</b> Nombre que identifica al método. Usa camelCase.</li>
+    <li><b>parámetros:</b> Datos que recibe el método para trabajar (pueden ser varios o ninguno).</li>
 </ul>
-<h2>Ejemplo sencillo</h2>
+
+<h2>Tipos de métodos</h2>
+
+<table border="1" cellpadding="8">
+<tr>
+    <th>Tipo</th>
+    <th>Descripción</th>
+    <th>Palabra clave</th>
+</tr>
+<tr>
+    <td>Con retorno</td>
+    <td>Devuelve un valor usando return.</td>
+    <td>int, double, String, etc.</td>
+</tr>
+<tr>
+    <td>Sin retorno</td>
+    <td>Realiza una acción pero no devuelve nada.</td>
+    <td>void</td>
+</tr>
+<tr>
+    <td>Con parámetros</td>
+    <td>Recibe datos para procesar.</td>
+    <td>(tipo nombre, tipo nombre)</td>
+</tr>
+<tr>
+    <td>Sin parámetros</td>
+    <td>No necesita datos externos.</td>
+    <td>()</td>
+</tr>
+</table>
+
+<h2>Ejemplo básico: método sin retorno y sin parámetros</h2>
 
 <p>
-El siguiente método muestra un mensaje en pantalla:
+El siguiente método simplemente muestra un mensaje en pantalla. No recibe datos ni devuelve nada:
 </p>
 
 <pre><code>
+// Método que muestra un saludo en pantalla
 public static void saludar() {
-
+    // Imprime el mensaje de bienvenida
     System.out.println("Bienvenido al programa");
-
 }
 </code></pre>
 
@@ -97,21 +130,22 @@ Para ejecutar el método se debe llamar desde el programa principal:
 </p>
 
 <pre><code>
-saludar();
+// Llamada al método desde el main
+saludar();  // Muestra: Bienvenido al programa
 </code></pre>
-    
+
 <h2>Métodos con retorno</h2>
 
 <p>
 Un método con retorno devuelve un valor mediante la palabra reservada
-<b>return</b>.
+<b>return</b>. El tipo de dato del retorno debe coincidir con el declarado.
 </p>
 
 <pre><code>
-public static int sumar(int a, int b){
-
+// Método que recibe dos enteros y devuelve su suma
+public static int sumar(int a, int b) {
+    // Retorna la suma de a y b
     return a + b;
-
 }
 </code></pre>
 
@@ -123,41 +157,45 @@ En este ejemplo el método recibe dos números enteros y devuelve su suma.
 
 <p>
 Cuando un método no devuelve ningún valor se utiliza la palabra
-<b>void</b>.
+<b>void</b>. Estos métodos generalmente realizan una acción como imprimir en pantalla.
 </p>
 
 <pre><code>
-public static void saludar(){
-
+// Método que muestra un saludo simple
+public static void saludar() {
+    // Imprime el mensaje
     System.out.println("Hola");
-
 }
 </code></pre>
 
-<h2>Ejemplo explicado</h2>
+<h2>Ejemplo teórico: método con retorno explicado</h2>
 
 <p>
-El siguiente programa utiliza un método para sumar dos números.
+El siguiente programa utiliza un método para sumar dos números. Es un ejemplo sencillo para entender el concepto:
 </p>
 
 <pre><code>
+// Clase principal
 public class Metodos {
 
-    public static int sumar(int a, int b){
-
+    // Método que suma dos números enteros y devuelve el resultado
+    public static int sumar(int a, int b) {
+        // Retorna la suma de los dos parámetros
         return a + b;
-
     }
 
-    public static void main(String[] args){
+    // Método principal (punto de entrada del programa)
+    public static void main(String[] args) {
 
-        int resultado = sumar(10,5);
+        // Llamamos al método sumar con los valores 10 y 5
+        int resultado = sumar(10, 5);
 
-        System.out.println("La suma es: " + resultado);
-
+        // Mostramos el resultado en pantalla
+        System.out.println("La suma es: " + resultado);  // Imprime: La suma es: 15
     }
 }
 </code></pre>
+
 <h2>Análisis línea por línea</h2>
 
 <ul>
@@ -165,29 +203,30 @@ public class Metodos {
     <li><b>static</b> → permite llamar al método sin crear un objeto.</li>
     <li><b>int</b> → indica que el método devuelve un número entero.</li>
     <li><b>sumar</b> → es el nombre del método.</li>
-    <li><b>(int a, int b)</b> → son los parámetros que recibe.</li>
-    <li><b>return</b> → devuelve el resultado de la operación.</li>
+    <li><b>(int a, int b)</b> → son los parámetros que recibe el método.</li>
+    <li><b>return</b> → devuelve el resultado de la operación al main.</li>
 </ul>
-    
+
 <h2>Explicación del código</h2>
 
 <ul>
-    <li>Se crea el método sumar().</li>
-    <li>El método recibe dos parámetros enteros.</li>
-    <li>La instrucción return devuelve la suma.</li>
-    <li>Desde main() se llama al método.</li>
-    <li>El resultado se almacena en una variable.</li>
-    <li>Finalmente se imprime el resultado.</li>
+    <li>Se crea el método <code>sumar()</code> fuera del <code>main()</code>.</li>
+    <li>El método recibe dos parámetros enteros: <code>a</code> y <code>b</code>.</li>
+    <li>La instrucción <code>return</code> devuelve la suma de ambos.</li>
+    <li>Desde <code>main()</code> se llama al método pasando dos valores.</li>
+    <li>El resultado se almacena en la variable <code>resultado</code>.</li>
+    <li>Finalmente se imprime el resultado en pantalla.</li>
 </ul>
 
 <h2>Ventajas de utilizar métodos</h2>
 
 <ul>
     <li>Evitan escribir el mismo código varias veces.</li>
-    <li>Facilitan la corrección de errores.</li>
+    <li>Facilitan la corrección de errores (solo se corrige en un lugar).</li>
     <li>Permiten reutilizar funciones en diferentes partes del programa.</li>
-    <li>Hacen que el código sea más profesional y organizado.</li>
+    <li>Hacen que el código sea más profesional, modular y organizado.</li>
 </ul>
+
 <h2>Métodos con parámetros y sin parámetros</h2>
 
 <p>
@@ -197,32 +236,47 @@ Un método puede recibir datos mediante parámetros o trabajar sin ellos.
 <h3>Método sin parámetros</h3>
 
 <pre><code>
+// Método que no recibe datos, solo muestra un mensaje fijo
 public static void mostrarMensaje() {
-
-    System.out.println("Hola");
-
+    // Imprime un mensaje predefinido
+    System.out.println("Hola, bienvenido");
 }
 </code></pre>
 
 <h3>Método con parámetros</h3>
 
 <pre><code>
+// Método que recibe un nombre y lo usa para personalizar el saludo
 public static void saludar(String nombre) {
-
+    // Imprime el saludo con el nombre recibido
     System.out.println("Hola " + nombre);
+}
+</code></pre>
 
+<h2>Método con múltiples parámetros</h2>
+
+<p>
+Un método puede recibir más de un parámetro, separados por comas:
+</p>
+
+<pre><code>
+// Método que recibe nombre y edad, e imprime un mensaje personalizado
+public static void mostrarInfo(String nombre, int edad) {
+    // Combina texto y número en un solo mensaje
+    System.out.println(nombre + " tiene " + edad + " años");
 }
 </code></pre>
 
 <h2>Errores comunes</h2>
 
 <ul>
-    <li>Olvidar escribir la palabra return en métodos con retorno.</li>
-    <li>Confundir métodos void con métodos que devuelven valores.</li>
-    <li>Llamar al método con parámetros incorrectos.</li>
-    <li>Escribir mal el nombre del método.</li>
+    <li>Olvidar escribir la palabra <b>return</b> en métodos que deben devolver un valor.</li>
+    <li>Confundir métodos <b>void</b> con métodos que devuelven valores (no se puede usar return con valor en void).</li>
+    <li>Llamar al método con parámetros incorrectos (tipo o cantidad).</li>
+    <li>Escribir mal el nombre del método (Java distingue mayúsculas y minúsculas).</li>
+    <li>Declarar el método <b>dentro</b> de otro método (los métodos deben estar al mismo nivel, uno dentro de la clase).</li>
 </ul>
-    
+
 <h2>Ejercicio práctico</h2>
 
 <p>
@@ -231,26 +285,30 @@ Posteriormente mostrar el resultado en pantalla.
 </p>
 
 <h2>Solución completa</h2>
-    
+
 <pre><code>
+// Clase principal del ejercicio
 public class MetodoMayor {
 
+    // Método que recibe dos números y devuelve el mayor
     public static int mayor(int a, int b) {
-
-        if(a > b) {
+        // Si a es mayor que b, devuelve a
+        if (a > b) {
             return a;
         } else {
+            // Si no, devuelve b
             return b;
         }
-
     }
 
+    // Método principal (punto de entrada del programa)
     public static void main(String[] args) {
 
+        // Llamamos al método mayor con los valores 15 y 8
         int resultado = mayor(15, 8);
 
-        System.out.println("El número mayor es: " + resultado);
-
+        // Mostramos el resultado en pantalla
+        System.out.println("El número mayor es: " + resultado);  // Imprime: El número mayor es: 15
     }
 }
 </code></pre>
@@ -258,68 +316,165 @@ public class MetodoMayor {
 <h2>Explicación de la solución</h2>
 
 <ul>
-    <li>Se comparan los dos números.</li>
-    <li>Si el primero es mayor, se devuelve ese valor.</li>
+    <li>Se crea el método <code>mayor()</code> que recibe dos enteros.</li>
+    <li>Se comparan los dos números con una estructura <code>if-else</code>.</li>
+    <li>Si el primero es mayor, se devuelve ese valor con <code>return</code>.</li>
     <li>En caso contrario se devuelve el segundo número.</li>
+    <li>Desde <code>main()</code> se llama al método y se muestra el resultado.</li>
 </ul>
 
-    <h2>Más ejercicios para practicar</h2>
+<h2>Ejercicio adicional: método con múltiples parámetros y validación</h2>
+
+<p>
+Crear un método que reciba el nombre de un estudiante, tres notas y devuelva su promedio. Además, mostrar si aprobó o no.
+</p>
+
+<pre><code>
+// Clase principal
+public class PromedioEstudiante {
+
+    // Método que calcula el promedio de tres notas
+    public static double calcularPromedio(double n1, double n2, double n3) {
+        // Suma las tres notas y divide entre 3
+        return (n1 + n2 + n3) / 3;
+    }
+
+    // Método que muestra si el estudiante aprobó o no
+    public static void mostrarResultado(String nombre, double promedio) {
+        // Imprime el nombre y el promedio obtenido
+        System.out.println("Estudiante: " + nombre);
+        System.out.println("Promedio: " + promedio);
+
+        // Verifica si aprobó (promedio >= 6.0)
+        if (promedio >= 6.0) {
+            System.out.println("Estado: Aprobado");
+        } else {
+            System.out.println("Estado: Reprobado");
+        }
+    }
+
+    // Método principal
+    public static void main(String[] args) {
+
+        // Calculamos el promedio con tres notas
+        double promedio = calcularPromedio(7.5, 6.0, 8.0);
+
+        // Mostramos el resultado del estudiante
+        mostrarResultado("Ana", promedio);
+    }
+}
+</code></pre>
+
+<h2>Explicación del ejercicio adicional</h2>
+
+<ul>
+    <li>El método <code>calcularPromedio()</code> recibe tres notas y devuelve el promedio.</li>
+    <li>El método <code>mostrarResultado()</code> es <code>void</code>: recibe el nombre y el promedio, e imprime el estado.</li>
+    <li>Se muestra cómo combinar un método con retorno y uno sin retorno en el mismo programa.</li>
+    <li>Se aplica una validación simple con <code>if-else</code> para determinar si aprobó.</li>
+</ul>
+
+<h2>Más ejercicios para practicar</h2>
 
 <h3>Nivel básico</h3>
-<p>
-Crear un método que reciba un número y muestre su cuadrado.
-</p>
+<ul>
+    <li>Crear un método que reciba un número y muestre su cuadrado.</li>
+    <li>Crear un método que reciba un nombre y lo salude.</li>
+</ul>
 
 <h3>Nivel intermedio</h3>
-<p>
-Crear un método que calcule el área de un rectángulo.
-</p>
+<ul>
+    <li>Crear un método que calcule el área de un rectángulo.</li>
+    <li>Crear un método que reciba una edad y diga si es mayor de edad.</li>
+</ul>
 
 <h3>Nivel avanzado</h3>
-<p>
-Crear un método que reciba un vector y calcule su promedio.
-</p>
+<ul>
+    <li>Crear un método que reciba un vector y calcule su promedio.</li>
+    <li>Crear un método que reciba un ArrayList de números y devuelva el mayor.</li>
+</ul>
 
-    <h2>Preguntas frecuentes</h2>
+<h2>Preguntas frecuentes</h2>
 
 <p><b>¿Qué diferencia existe entre void e int?</b></p>
-
 <p>
-void no devuelve ningún valor, mientras que int devuelve un número entero.
+<code>void</code> no devuelve ningún valor, mientras que <code>int</code> devuelve un número entero. Otros tipos de retorno pueden ser <code>double</code>, <code>String</code>, <code>boolean</code>, etc.
 </p>
 
 <p><b>¿Qué son los parámetros?</b></p>
+<p>
+Son datos que recibe un método para realizar una tarea específica. Se declaran dentro de los paréntesis del método.
+</p>
+
+<p><b>¿Puedo tener dos métodos con el mismo nombre?</b></p>
+<p>
+Sí, si tienen diferentes parámetros (tipo o cantidad). Esto se llama <b>sobrecarga de métodos</b>.
+</p>
+
+<p><b>¿Por qué usar static en los métodos?</b></p>
+<p>
+<code>static</code> permite llamar al método directamente desde <code>main()</code> sin necesidad de crear un objeto de la clase.
+</p>
+
+<p><b>¿Qué pasa si olvido el return?</b></p>
+<p>
+Si el método declara un tipo de retorno (como <code>int</code>), Java exige que uses <code>return</code>. Si lo omites, el programa no compilará.
+</p>
+
+<h2>Relación con otros temas</h2>
 
 <p>
-Son datos que recibe un método para realizar una tarea específica.
+Los métodos se combinan con <b>ciclos</b> para realizar tareas repetitivas,
+con <b>vectores y matrices</b> para procesar colecciones de datos,
+con <b>listas</b> para recorrer y modificar elementos,
+y con <b>archivos</b> para leer o escribir datos desde funciones separadas.
 </p>
-    
+
+<h2>Resumen</h2>
+
+<ul>
+    <li>Los métodos organizan el código en bloques reutilizables.</li>
+    <li>Pueden devolver un valor (con tipo de dato) o no devolver nada (void).</li>
+    <li>Pueden recibir parámetros o funcionar sin ellos.</li>
+    <li>Se llaman desde el método <code>main()</code> u otros métodos.</li>
+    <li>Facilitan el mantenimiento, la reutilización y la legibilidad del código.</li>
+</ul>
+
 <h2>Conclusión</h2>
 
 <p>
 Los métodos son una de las herramientas más importantes de la programación.
 Permiten dividir los programas en tareas más pequeñas, reutilizar código y
 mejorar la organización de las aplicaciones. Su uso es fundamental para el
-desarrollo de programas más eficientes y fáciles de mantener.
+desarrollo de programas más eficientes, modulares y fáciles de mantener.
 </p>
 
 <p>
-Código completo en GitHub:
+Código del ejemplo teórico en GitHub:
 <a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigos/Metodos.java">
 Ver Metodos.java
 </a>
 </p>
 
-  <p>
-Código del ejercicio resuelto:
+<p>
+Código del ejercicio resuelto en GitHub:
 <a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigos/EjerciciosPracticos/EjercicioMetodos.java">
 Ver EjercicioMetodos.java
 </a>
 </p>
-    
+
+<p>
+Código del ejercicio adicional en GitHub:
+<a href="https://github.com/les1212/tutorial-programacion-java/blob/main/codigos/EjerciciosPracticos/PromedioEstudiante.java">
+Ver PromedioEstudiante.java
+</a>
+</p>
+
 </main>
+
 <footer>
     <p>Autora: Lesly Nicole Reivan Rubio</p>
 </footer>
+
 </body>
 </html>
