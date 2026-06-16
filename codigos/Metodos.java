@@ -5,9 +5,7 @@ public class Metodos {
     }
 
     public static void main(String[] args) {
-
         int resultado = sumar(10, 5);
-
         System.out.println("La suma es: " + resultado);
     }
 }
